@@ -22,7 +22,7 @@ public class CalendarFragment extends Fragment {
     private TextView monthYearText;
     private Date now = new Date();
     private Calendar calendar = Calendar.getInstance();
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("MM월 yyyy");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월");
     private RecyclerView recyclerView;
 
     @Nullable

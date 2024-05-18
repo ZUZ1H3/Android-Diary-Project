@@ -18,29 +18,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-"/>
+            android:text="이전 달"
+            android:fontFamily="@font/diary"/>
 
         <TextView
             android:id="@+id/monthYearText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:text="05월 2024"
+            android:text="2024년 05월"
             android:textAlignment="center"
             android:textSize="25sp"
-            android:textColor="@color/black">
+            android:textColor="@color/black"
+            android:fontFamily="@font/diary">
         </TextView>
         <Button
             android:id="@+id/nextBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="-"/>
+            android:text="다음 달"
+            android:fontFamily="@font/diary"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp">
 
         <TextView
             android:layout_width="0dp"
@@ -50,7 +54,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_red_dark"/>
+            android:textColor="@android:color/holo_red_dark"
+            android:fontFamily="@font/diary"/>
 
         <TextView
             android:layout_width="0dp"
@@ -60,7 +65,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/diary"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,7 +75,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/diary"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -78,7 +85,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/diary"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -87,7 +95,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/diary"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -96,7 +105,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/diary"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -105,7 +115,8 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@android:color/holo_blue_dark"/>
+            android:textColor="@android:color/holo_blue_dark"
+            android:fontFamily="@font/diary"/>
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
