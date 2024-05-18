@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="날씨" />
+
+    <TextView
+        android:id="@+id/textView_mood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기분" />
+
+    <EditText
+        android:id="@+id/editText_diary"
+        android:layout_width="match_parent"
+        android:layout_height="272dp"
+        android:hint="일기를 입력하세요." />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="저장" />
+
+</LinearLayout>
