@@ -4,6 +4,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -25,6 +26,8 @@ public class CalendarFragment extends Fragment {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월");
     private RecyclerView recyclerView;
 
+    private ListFragment listFragment;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -33,6 +36,7 @@ public class CalendarFragment extends Fragment {
         monthYearText = view.findViewById(R.id.monthYearText);
         Button preBtn = view.findViewById(R.id.preBtn);
         Button nextBtn = view.findViewById(R.id.nextBtn);
+        Button listBtn = view.findViewById(R.id.listBtn);
         recyclerView = view.findViewById(R.id.recyclerview);
 
         calendar.setTime(now);
@@ -54,6 +58,22 @@ public class CalendarFragment extends Fragment {
             }
         });
 
+        listBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+
+                if (listFragment != null) {
+                    fragmentTransaction.show(listFragment);
+                } else {
+                    listFragment = new ListFragment();
+                    fragmentTransaction.add(R.id.container, listFragment);
+                }
+
+                fragmentTransaction.hide(CalendarFragment.this);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 
@@ -65,6 +85,7 @@ public class CalendarFragment extends Fragment {
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
     }
+
 
     private ArrayList<String> dayInMonthArray(Calendar calendar) {
         ArrayList<String> dayList = new ArrayList<>();

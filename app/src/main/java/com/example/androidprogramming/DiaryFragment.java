@@ -42,8 +42,16 @@ public class DiaryFragment extends Fragment {
                 String diary = editText_diary.getText().toString();
                 String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(new Date());
                 saveDiary(diary, date);
+
+                // 일기를 저장한 후 ListFragment로 이동
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                ListFragment listFragment = new ListFragment();
+
+                transaction.replace(R.id.container, listFragment);
+                transaction.commit();
             }
         });
+
 
         return rootView;
     }

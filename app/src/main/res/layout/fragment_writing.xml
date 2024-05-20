@@ -8,24 +8,28 @@
         android:id="@+id/textView_weather"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="날씨" />
+        android:text="날씨"
+        android:fontFamily="@font/diary" />
 
     <TextView
         android:id="@+id/textView_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="기분" />
+        android:text="기분"
+        android:fontFamily="@font/diary" />
 
     <EditText
         android:id="@+id/editText_diary"
         android:layout_width="match_parent"
         android:layout_height="272dp"
-        android:hint="일기를 입력하세요." />
+        android:hint="일기를 입력하세요."
+        android:fontFamily="@font/diary"/>
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="저장" />
+        android:text="저장"
+        android:fontFamily="@font/diary"/>
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     SettingFragment settingFragment;
     Fragment activeFragment;
 
+    NavigationBarView navigationBarView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         activeFragment = calendarFragment;
 
-        NavigationBarView navigationBarView = findViewById(R.id.bottom_navigationview);
+        navigationBarView = findViewById(R.id.bottom_navigationview);
         navigationBarView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -58,5 +60,14 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+    }
+
+    public void showNavigationBar() {
+        navigationBarView.setVisibility(View.VISIBLE);
+    }
+
+    // 네비게이션 바를 숨기는 메서드
+    public void hideNavigationBar() {
+        navigationBarView.setVisibility(View.GONE);
     }
 }
