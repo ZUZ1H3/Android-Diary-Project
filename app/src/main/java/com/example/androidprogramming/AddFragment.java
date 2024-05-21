@@ -10,11 +10,11 @@ public class AddFragment extends Fragment {
 
     private RadioGroup rGroup_weather, rGroup_mood;
     private Button button_write;
+    private int year, month, day;  // 'final' 키워드 추가
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_add, container, false);
-
 
         rGroup_weather = rootView.findViewById(R.id.rGroup_weather);
         rGroup_mood = rootView.findViewById(R.id.rGroup_mood);
@@ -23,9 +23,9 @@ public class AddFragment extends Fragment {
         // 날짜 데이터 받아오기
         Bundle bundle = getArguments();
         if (bundle != null) {
-            int year = bundle.getInt("year");
-            int month = bundle.getInt("month");
-            int day = bundle.getInt("day");
+            year = bundle.getInt("year");
+            month = bundle.getInt("month");
+            day = bundle.getInt("day");
 
             // 날짜를 텍스트뷰에 표시
             TextView dateText = rootView.findViewById(R.id.date);
@@ -41,8 +41,10 @@ public class AddFragment extends Fragment {
                 String selectedWeather = ((RadioButton) rootView.findViewById(selectedWeatherId)).getText().toString();
                 String selectedMood = ((RadioButton) rootView.findViewById(selectedMoodId)).getText().toString();
 
-
                 Bundle bundle = new Bundle();
+                bundle.putInt("year", year);
+                bundle.putInt("month", month);
+                bundle.putInt("day", day);
                 bundle.putString("weather", selectedWeather);
                 bundle.putString("mood", selectedMood);
 
@@ -56,8 +58,8 @@ public class AddFragment extends Fragment {
         });
 
         return rootView;
-
     }
+
 
     public void onResume() {
         super.onResume();

@@ -1,35 +1,45 @@
 package com.example.androidprogramming;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DiaryAdapter extends ArrayAdapter<String> {
+public class ListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<String> diaryList;
 
-    public DiaryAdapter(Context context, ArrayList<String> diaryList) {
-        super(context, R.layout.fragment_list, diaryList);
+    public ListAdapter(Context context, ArrayList<String> diaryList) {
         this.context = context;
         this.diaryList = diaryList;
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public int getCount() {
+        return diaryList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return diaryList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.fragment_list, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
         }
 
         TextView dateText = convertView.findViewById(R.id.dateText);

@@ -9,15 +9,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 
 public class ListFragment extends Fragment {
 
     private ListView listView;
-    private DiaryAdapter adapter;
+    private ListAdapter adapter;
     private ArrayList<String> diaryList;
 
     @Nullable
@@ -39,7 +37,7 @@ public class ListFragment extends Fragment {
         }
 
         // 그리드뷰에 어댑터를 설정합니다.
-        adapter = new DiaryAdapter(getContext(), diaryList);
+        adapter = new ListAdapter(getContext(), diaryList);
         listView.setAdapter(adapter);
 
         return view;

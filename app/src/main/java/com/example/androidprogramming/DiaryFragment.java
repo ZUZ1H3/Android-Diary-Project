@@ -8,19 +8,23 @@ import androidx.fragment.app.*;
 
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
 public class DiaryFragment extends Fragment {
 
-    private TextView textView_weather, textView_mood;
+    private TextView textView_date, textView_weather, textView_mood;
     private EditText editText_diary;
     private Button button_save;
+
+    private int year, month, day;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_writing, container, false);
 
+        textView_date = rootView.findViewById(R.id.textView_date);
         textView_weather = rootView.findViewById(R.id.textView_weather);
         textView_mood = rootView.findViewById(R.id.textView_mood);
         editText_diary = rootView.findViewById(R.id.editText_diary);
@@ -31,7 +35,11 @@ public class DiaryFragment extends Fragment {
         if (bundle != null) {
             String weather = bundle.getString("weather");
             String mood = bundle.getString("mood");
+            year = bundle.getInt("year");
+            month = bundle.getInt("month");
+            day = bundle.getInt("day");
 
+            textView_date.setText(year + "년 " + month + "월 " + day + "일");
             textView_weather.setText(weather);
             textView_mood.setText(mood);
         }
@@ -40,7 +48,9 @@ public class DiaryFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String diary = editText_diary.getText().toString();
-                String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(new Date());
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, month - 1, day);  // Calendar.MONTH는 0부터 시작하므로 month - 1을 해줍니다.
+                String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(calendar.getTime());
                 saveDiary(diary, date);
 
                 // 일기를 저장한 후 ListFragment로 이동
