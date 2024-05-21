@@ -26,8 +26,6 @@ public class CalendarFragment extends Fragment {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월");
     private RecyclerView recyclerView;
 
-    private ListFragment listFragment;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,7 +34,6 @@ public class CalendarFragment extends Fragment {
         monthYearText = view.findViewById(R.id.monthYearText);
         Button preBtn = view.findViewById(R.id.preBtn);
         Button nextBtn = view.findViewById(R.id.nextBtn);
-        Button listBtn = view.findViewById(R.id.listBtn);
         recyclerView = view.findViewById(R.id.recyclerview);
 
         calendar.setTime(now);
@@ -58,7 +55,7 @@ public class CalendarFragment extends Fragment {
             }
         });
 
-        listBtn.setOnClickListener(new View.OnClickListener() {
+        /*listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -73,7 +70,7 @@ public class CalendarFragment extends Fragment {
                 fragmentTransaction.hide(CalendarFragment.this);
                 fragmentTransaction.commit();
             }
-        });
+        });*/
         return view;
     }
 

@@ -67,4 +67,9 @@ public class DiaryFragment extends Fragment {
             e.printStackTrace();
         }
     }
+    public void onResume() {
+        super.onResume();
+        // 프래그먼트가 화면에 표시될 때 네비게이션 바를 숨깁니다.
+        ((MainActivity) getActivity()).hideNavigationBar();
+    }
 }

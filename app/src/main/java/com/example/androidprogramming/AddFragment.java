@@ -45,4 +45,5 @@ public class AddFragment extends Fragment {
         return rootView;
         //return inflater.inflate(R.layout.fragment_add, container, false);
     }
+
 }

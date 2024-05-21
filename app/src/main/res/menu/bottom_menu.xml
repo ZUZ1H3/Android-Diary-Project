@@ -8,10 +8,10 @@
         android:title="캘린더"
         app:showAsAction="always"/>
     <item
-        android:id="@+id/add"
+        android:id="@+id/list"
         android:enabled="true"
         android:icon="@drawable/icon_add"
-        android:title="작성"
+        android:title="리스트"
         app:showAsAction="always"/>
     <item
         android:id="@+id/setting"

@@ -6,28 +6,6 @@
     tools:context=".CalendarFragment"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="end"
-        android:layout_marginTop="10dp">
-
-        <Button
-            android:id="@+id/statsBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="통계"
-            android:layout_marginRight="10dp"
-            android:fontFamily="@font/diary"/>
-
-        <Button
-            android:id="@+id/listBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="리스트"
-            android:fontFamily="@font/diary"/>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -53,4 +53,5 @@ public class DiaryAdapter extends ArrayAdapter<String> {
 
         return convertView;
     }
+
 }
