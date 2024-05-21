@@ -9,7 +9,11 @@ import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class ListAdapter extends BaseAdapter {
 
@@ -47,6 +51,18 @@ public class ListAdapter extends BaseAdapter {
 
         String filename = diaryList.get(position);
         String date = filename.substring(0, filename.length() - 4); // 확장자를 제외한 파일 이름
+
+        // 날짜 문자열을 Date 객체로 변환
+        SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd", Locale.KOREA);
+        try {
+            Date dateObj = format.parse(date);
+            // Date 객체를 사용하여 요일을 얻음
+            format = new SimpleDateFormat("MM월 dd일 EEEE", Locale.KOREA);
+            date = format.format(dateObj);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         dateText.setText(date);
 
         String diary = ""; // 일기 내용
@@ -63,5 +79,6 @@ public class ListAdapter extends BaseAdapter {
 
         return convertView;
     }
+
 
 }

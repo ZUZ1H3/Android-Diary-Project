@@ -5,17 +5,28 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp">
     <TextView
         android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:text="05월 20일 월요일"
+        android:fontFamily="@font/kd_bold"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/diaryText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text=""/>
+        android:textSize="14sp"
+        android:text="오늘은 과자를 먹었다. 마싰었다. 오늘의 일기 끝!"
+        android:fontFamily="@font/kd_medium" />
+    </LinearLayout>
 </LinearLayout>

@@ -29,7 +29,7 @@ public class AddFragment extends Fragment {
 
             // 날짜를 텍스트뷰에 표시
             TextView dateText = rootView.findViewById(R.id.date);
-            dateText.setText(year + "년 " + month + "월 " + day + "일");
+            dateText.setText(month + "월 " + day + "일");
         }
 
         button_write.setOnClickListener(new View.OnClickListener() {

@@ -12,9 +12,11 @@
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="2024년 05월 20일"
+        android:text="05월 20일"
         android:gravity="center"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:fontFamily="@font/kd_bold"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:id="@+id/weather"
@@ -23,7 +25,8 @@
         android:text="오늘의 날씨를 알려주세요!"
         android:gravity="center"
         android:textSize="20dp"
-        android:layout_margin="60dp"/>
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/kd_medium"/>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -46,28 +49,32 @@
                     android:text="Sunny"
                     android:layout_width="105dp"
                     android:layout_height="105dp"
-                    android:textSize="16dp">
+                    android:textSize="16dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
 
                 <RadioButton android:id="@+id/Rainy"
                     android:text="Rainy"
                     android:layout_width="105dp"
                     android:textSize="16dp"
-                    android:layout_height="105dp">
+                    android:layout_height="105dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
 
                 <RadioButton android:id="@+id/Cloudy"
                     android:text="Cloudy"
                     android:layout_width="105dp"
                     android:textSize="16dp"
-                    android:layout_height="105dp">
+                    android:layout_height="105dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
 
                 <RadioButton android:id="@+id/Windy"
                     android:text="Windy"
                     android:layout_width="105dp"
                     android:textSize="16dp"
-                    android:layout_height="105dp">
+                    android:layout_height="105dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
             </RadioGroup>
         </LinearLayout>
@@ -80,7 +87,8 @@
         android:text="오늘의 기분은 어땠나요?"
         android:gravity="center"
         android:textSize="20dp"
-        android:layout_margin="60dp"/>
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/kd_medium"/>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -103,28 +111,32 @@
                     android:text="Happy"
                     android:layout_width="105dp"
                     android:layout_height="105dp"
-                    android:textSize="16dp">
+                    android:textSize="16dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
 
                 <RadioButton android:id="@+id/sad"
                     android:text="Sad"
                     android:layout_width="105dp"
                     android:textSize="16dp"
-                    android:layout_height="105dp">
+                    android:layout_height="105dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
 
                 <RadioButton android:id="@+id/angry"
                     android:text="Angry"
                     android:layout_width="105dp"
                     android:textSize="16dp"
-                    android:layout_height="105dp">
+                    android:layout_height="105dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
 
                 <RadioButton android:id="@+id/tired"
                     android:text="tired"
                     android:layout_width="105dp"
                     android:textSize="16dp"
-                    android:layout_height="105dp">
+                    android:layout_height="105dp"
+                    android:fontFamily="@font/kd_medium">
                 </RadioButton>
             </RadioGroup>
         </LinearLayout>
@@ -137,5 +149,6 @@
         android:text="일기 쓰기"
         android:textSize="20dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/kd_medium"/>
 </LinearLayout>
