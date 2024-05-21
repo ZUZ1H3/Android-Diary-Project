@@ -8,6 +8,13 @@
     android:padding="16dp"
     tools:context=".AddFragment">
 
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2024년 05월 20일"
+        android:gravity="center"
+        android:textSize="20dp"/>
 
     <TextView
         android:id="@+id/weather"

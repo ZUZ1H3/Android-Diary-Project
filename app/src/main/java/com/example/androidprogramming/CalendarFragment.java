@@ -4,7 +4,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,13 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class CalendarFragment extends Fragment {
+public class CalendarFragment extends Fragment{
 
     private TextView monthYearText;
     private Date now = new Date();
@@ -55,28 +53,12 @@ public class CalendarFragment extends Fragment {
             }
         });
 
-        /*listBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-
-                if (listFragment != null) {
-                    fragmentTransaction.show(listFragment);
-                } else {
-                    listFragment = new ListFragment();
-                    fragmentTransaction.add(R.id.container, listFragment);
-                }
-
-                fragmentTransaction.hide(CalendarFragment.this);
-                fragmentTransaction.commit();
-            }
-        });*/
         return view;
     }
 
     private void setMonthView() {
         monthYearText.setText(dateFormat.format(calendar.getTime()));
-        ArrayList<String> dayList = dayInMonthArray(calendar);
+        ArrayList<Calendar> dayList = dayInMonthArray(calendar);
         CalendarAdapter adapter = new CalendarAdapter(dayList);
         RecyclerView.LayoutManager manager = new GridLayoutManager(getContext(), 7);
         recyclerView.setLayoutManager(manager);
@@ -84,8 +66,8 @@ public class CalendarFragment extends Fragment {
     }
 
 
-    private ArrayList<String> dayInMonthArray(Calendar calendar) {
-        ArrayList<String> dayList = new ArrayList<>();
+    private ArrayList<Calendar> dayInMonthArray(Calendar calendar) {
+        ArrayList<Calendar> dayList = new ArrayList<>();
         int month = calendar.get(Calendar.MONTH) + 1;
         int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
@@ -93,13 +75,16 @@ public class CalendarFragment extends Fragment {
 
         // 빈 칸 채우기
         for (int i = 1; i < dayOfWeek; i++) {
-            dayList.add("");
+            dayList.add(null);
         }
 
         for (int i = 1; i <= lastDay; i++) {
-            dayList.add(String.valueOf(i));
+            Calendar day = (Calendar) calendar.clone();
+            day.set(Calendar.DAY_OF_MONTH, i);
+            dayList.add(day);
         }
 
         return dayList;
     }
+
 }

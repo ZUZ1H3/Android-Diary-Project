@@ -12,12 +12,14 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.Set;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     CalendarFragment calendarFragment;
     AddFragment addFragment;
     SettingFragment settingFragment;
     Fragment activeFragment;
+
+    ListFragment listFragment;
 
     NavigationBarView navigationBarView;
     @Override
@@ -28,10 +30,11 @@ public class MainActivity extends AppCompatActivity {
         calendarFragment = new CalendarFragment();
         addFragment = new AddFragment();
         settingFragment = new SettingFragment();
+        listFragment = new ListFragment();
 
         // Add fragments to container
         getSupportFragmentManager().beginTransaction().add(R.id.containers, settingFragment, "3").hide(settingFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, addFragment, "2").hide(addFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.containers, listFragment, "2").hide(listFragment).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.containers, calendarFragment, "1").commit();
 
         activeFragment = calendarFragment;
@@ -46,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().hide(activeFragment).show(calendarFragment).commit();
                     activeFragment = calendarFragment;
                     return true;
-                } else if (itemId == R.id.add) {
-                    getSupportFragmentManager().beginTransaction().hide(activeFragment).show(addFragment).commit();
-                    activeFragment = addFragment;
+                } else if (itemId == R.id.list) {
+                    getSupportFragmentManager().beginTransaction().hide(activeFragment).show(listFragment).commit();
+                    activeFragment = listFragment;
                     return true;
                 } else if (itemId == R.id.setting) {
                     getSupportFragmentManager().beginTransaction().hide(activeFragment).show(settingFragment).commit();
@@ -70,4 +73,5 @@ public class MainActivity extends AppCompatActivity {
     public void hideNavigationBar() {
         navigationBarView.setVisibility(View.GONE);
     }
+
 }
