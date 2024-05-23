@@ -39,9 +39,10 @@ public class DiaryFragment extends Fragment {
             month = bundle.getInt("month");
             day = bundle.getInt("day");
 
-            textView_date.setText(year + "년 " + month + "월 " + day + "일");
-            textView_weather.setText(weather);
-            textView_mood.setText(mood);
+            textView_date.setText(month + "월 " + day + "일");
+            textView_mood.setText("내 기분 " + mood + ".");
+            textView_weather.setText("오늘의 날씨 " + weather + ", ");
+
         }
 
         button_save.setOnClickListener(new View.OnClickListener() {

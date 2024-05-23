@@ -14,4 +14,9 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:fontFamily="@font/diary"/>
+    <ImageView
+        android:id="@+id/dayImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 </LinearLayout>

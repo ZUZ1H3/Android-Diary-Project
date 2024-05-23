@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,7 +39,19 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         if (day == null) {
             holder.dayText.setText(""); // 빈 칸
         } else {
-            holder.dayText.setText(String.valueOf(day.get(Calendar.DAY_OF_MONTH)));
+            boolean hasDiary = checkDiaryData(day, holder);
+
+            if (hasDiary) {
+                holder.dayText.setVisibility(View.GONE); // 텍스트를 숨깁니다
+                holder.dayImage.setVisibility(View.VISIBLE); // 이미지를 표시합니다
+
+                // 이미지를 설정합니다. 이 예시에서는 diaryImage라는 리소스를 사용한다고 가정합니다.
+                holder.dayImage.setImageResource(R.drawable.emoji);
+            } else {
+                holder.dayText.setText(String.valueOf(day.get(Calendar.DAY_OF_MONTH)));
+                holder.dayText.setVisibility(View.VISIBLE); // 텍스트를 표시합니다
+                holder.dayImage.setVisibility(View.GONE); // 이미지를 숨깁니다
+            }
         }
 
         // 텍스트 색상 지정 (토, 일)
@@ -56,9 +69,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                 int iMonth = day.get(Calendar.MONTH) + 1; // Calendar.MONTH는 0부터 시작
                 int iDay = day.get(Calendar.DAY_OF_MONTH);
 
-                //String yearMonDay = iYear + "년 " + iMonth + "월 " + iDay + "일";
-                //Toast.makeText(holder.itemView.getContext(), yearMonDay, Toast.LENGTH_SHORT).show();
-
                 AddFragment addFragment = new AddFragment();
                 // 날짜 데이터를 번들에 담아 프래그먼트로 전달
                 Bundle bundle = new Bundle();
@@ -69,7 +79,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                 ((MainActivity)holder.itemView.getContext()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, addFragment)
                         .commit();
-
             }
         });
     }
@@ -81,10 +90,18 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
 
     class CalendarViewHolder extends RecyclerView.ViewHolder {
         TextView dayText;
+        ImageView dayImage; // 추가
 
         public CalendarViewHolder(@NonNull View itemView) {
             super(itemView);
             dayText = itemView.findViewById(R.id.dayText); // dayText 초기화
+            dayImage = itemView.findViewById(R.id.dayImage); // dayImage 초기화
         }
+    }
+
+    private boolean checkDiaryData(Calendar day, CalendarViewHolder holder) {
+        String fileName = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(day.getTime()) + ".txt";
+        File file = new File(holder.itemView.getContext().getFilesDir(), fileName);
+        return file.exists();
     }
 }
