@@ -1,79 +1,102 @@
 package com.example.androidprogramming;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import android.database.sqlite.SQLiteDatabase;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
-import com.google.android.material.navigation.NavigationBarView;
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends AppCompatActivity{
+    private TextView monthYearText;
+    private Date now = new Date();
+    private Calendar calendar = Calendar.getInstance();
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월");
+    private RecyclerView recyclerView;
 
-    CalendarFragment calendarFragment;
-    AddFragment addFragment;
-    SettingFragment settingFragment;
-    Fragment activeFragment;
-
-    ListFragment listFragment;
-
-    NavigationBarView navigationBarView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        calendarFragment = new CalendarFragment();
-        //addFragment = new AddFragment();
-        settingFragment = new SettingFragment();
-        listFragment = new ListFragment();
+        ImageButton listBtn = findViewById(R.id.listBtn);
+        ImageButton graphBtn = findViewById(R.id.graphBtn);
+        ImageButton preBtn = findViewById(R.id.preBtn);
+        ImageButton nextBtn = findViewById(R.id.nextBtn);
 
-        // Add fragments to container
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, settingFragment, "settingFragment").hide(settingFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, listFragment, "listFragment").hide(listFragment).commit();
-        //getSupportFragmentManager().beginTransaction().add(R.id.containers, addFragment, "addFragment").hide(addFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, calendarFragment, "calendarFragment").commit();
+        monthYearText = findViewById(R.id.monthYearText);
+        recyclerView = findViewById(R.id.recyclerview);
 
+        calendar.setTime(now);
+        setMonthView();
 
-
-        activeFragment = calendarFragment;
-
-        navigationBarView = findViewById(R.id.bottom_navigationview);
-        navigationBarView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int itemId = item.getItemId();
-
-                if (itemId == R.id.calendar) {
-                    getSupportFragmentManager().beginTransaction().hide(activeFragment).show(calendarFragment).commit();
-                    activeFragment = calendarFragment;
-                    return true;
-                } else if (itemId == R.id.list) {
-                    getSupportFragmentManager().beginTransaction().hide(activeFragment).show(listFragment).commit();
-                    activeFragment = listFragment;
-                    return true;
-                } else if (itemId == R.id.setting) {
-                    getSupportFragmentManager().beginTransaction().hide(activeFragment).show(settingFragment).commit();
-                    activeFragment = settingFragment;
-                    return true;
-                }
-                return false;
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(intent);
             }
-
         });
 
+        graphBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+        preBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.MONTH, -1);
+                setMonthView();
+            }
+        });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.MONTH, 1);
+                setMonthView();
+            }
+        });
     }
 
-    public void showNavigationBar() {
-        navigationBarView.setVisibility(View.VISIBLE);
+    private void setMonthView() {
+        monthYearText.setText(dateFormat.format(calendar.getTime()));
+        ArrayList<Calendar> dayList = dayInMonthArray(calendar);
+        CalendarAdapter adapter = new CalendarAdapter(dayList, this);
+        RecyclerView.LayoutManager manager = new GridLayoutManager(this, 7);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(adapter);
     }
 
-    // 네비게이션 바를 숨기는 메서드
-    public void hideNavigationBar() {
-        navigationBarView.setVisibility(View.GONE);
-    }
+    private ArrayList<Calendar> dayInMonthArray(Calendar calendar) {
+        ArrayList<Calendar> dayList = new ArrayList<>();
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK); // 현재 월의 첫 번째 날의 요일
 
+        // 빈 칸 채우기
+        for (int i = 1; i < dayOfWeek; i++) {
+            dayList.add(null);
+        }
+
+        for (int i = 1; i <= lastDay; i++) {
+            Calendar day = (Calendar) calendar.clone();
+            day.set(Calendar.DAY_OF_MONTH, i);
+            dayList.add(day);
+        }
+
+        return dayList;
+    }
 }

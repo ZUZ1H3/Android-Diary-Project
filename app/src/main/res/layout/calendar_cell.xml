@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="1"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:fontFamily="@font/diary"/>
     <ImageView
