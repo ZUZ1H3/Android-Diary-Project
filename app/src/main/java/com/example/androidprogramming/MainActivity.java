@@ -4,13 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -28,14 +27,17 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         calendarFragment = new CalendarFragment();
-        addFragment = new AddFragment();
+        //addFragment = new AddFragment();
         settingFragment = new SettingFragment();
         listFragment = new ListFragment();
 
         // Add fragments to container
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, settingFragment, "3").hide(settingFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, listFragment, "2").hide(listFragment).commit();
-        getSupportFragmentManager().beginTransaction().add(R.id.containers, calendarFragment, "1").commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.containers, settingFragment, "settingFragment").hide(settingFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.containers, listFragment, "listFragment").hide(listFragment).commit();
+        //getSupportFragmentManager().beginTransaction().add(R.id.containers, addFragment, "addFragment").hide(addFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.containers, calendarFragment, "calendarFragment").commit();
+
+
 
         activeFragment = calendarFragment;
 

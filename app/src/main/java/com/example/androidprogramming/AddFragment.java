@@ -50,8 +50,9 @@ public class AddFragment extends Fragment {
 
                 DiaryFragment diaryFragment = new DiaryFragment();
                 diaryFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().popBackStack();
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.container, diaryFragment)
+                        .replace(R.id.containers, diaryFragment)
                         .addToBackStack(null)
                         .commit();
             }

@@ -1,5 +1,6 @@
 package com.example.androidprogramming;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,17 +12,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder> {
-    ArrayList<Calendar> dayList;
+    private ArrayList<Calendar> dayList;
+    private DiaryDBHelper diaryDBHelper; // DBHelper 인스턴스를 추가합니다.
 
-    public CalendarAdapter(ArrayList<Calendar> dayList) {
+    public CalendarAdapter(ArrayList<Calendar> dayList, Context context) {
         this.dayList = dayList;
+        this.diaryDBHelper = new DiaryDBHelper(context); // DBHelper 인스턴스를 초기화합니다.
     }
 
     @NonNull
@@ -39,7 +41,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         if (day == null) {
             holder.dayText.setText(""); // 빈 칸
         } else {
-            boolean hasDiary = checkDiaryData(day, holder);
+            boolean hasDiary = checkDiaryData(day);
 
             if (hasDiary) {
                 holder.dayText.setVisibility(View.GONE); // 텍스트를 숨깁니다
@@ -77,7 +79,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                 bundle.putInt("day", iDay);
                 addFragment.setArguments(bundle);
                 ((MainActivity)holder.itemView.getContext()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, addFragment)
+                        .add(R.id.containers, addFragment)
                         .commit();
             }
         });
@@ -99,9 +101,9 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         }
     }
 
-    private boolean checkDiaryData(Calendar day, CalendarViewHolder holder) {
-        String fileName = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(day.getTime()) + ".txt";
-        File file = new File(holder.itemView.getContext().getFilesDir(), fileName);
-        return file.exists();
+    private boolean checkDiaryData(Calendar day) {
+        String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(day.getTime());
+        // DBHelper를 사용하여 해당 날짜에 일기 데이터가 있는지 확인합니다.
+        return diaryDBHelper.hasDiaryOnDate(date);
     }
 }

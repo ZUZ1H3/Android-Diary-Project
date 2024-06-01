@@ -4,6 +4,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -59,7 +61,7 @@ public class CalendarFragment extends Fragment{
     private void setMonthView() {
         monthYearText.setText(dateFormat.format(calendar.getTime()));
         ArrayList<Calendar> dayList = dayInMonthArray(calendar);
-        CalendarAdapter adapter = new CalendarAdapter(dayList);
+        CalendarAdapter adapter = new CalendarAdapter(dayList, getContext());
         RecyclerView.LayoutManager manager = new GridLayoutManager(getContext(), 7);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
@@ -85,6 +87,11 @@ public class CalendarFragment extends Fragment{
         }
 
         return dayList;
+    }
+    public void onResume() {
+        super.onResume();
+        // 프래그먼트가 화면에 표시될 때 네비게이션 바를 숨깁니다.
+        ((MainActivity) getActivity()).showNavigationBar();
     }
 
 }

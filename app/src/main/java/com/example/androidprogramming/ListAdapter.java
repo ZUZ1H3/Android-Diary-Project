@@ -18,9 +18,9 @@ import java.util.Locale;
 public class ListAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<String> diaryList;
+    private ArrayList<Diary> diaryList; // Diary 객체의 ArrayList를 사용합니다.
 
-    public ListAdapter(Context context, ArrayList<String> diaryList) {
+    public ListAdapter(Context context, ArrayList<Diary> diaryList) {
         this.context = context;
         this.diaryList = diaryList;
     }
@@ -49,36 +49,12 @@ public class ListAdapter extends BaseAdapter {
         TextView dateText = convertView.findViewById(R.id.dateText);
         TextView diaryText = convertView.findViewById(R.id.diaryText);
 
-        String filename = diaryList.get(position);
-        String date = filename.substring(0, filename.length() - 4); // 확장자를 제외한 파일 이름
+        Diary diary = diaryList.get(position);
 
-        // 날짜 문자열을 Date 객체로 변환
-        SimpleDateFormat format = new SimpleDateFormat("yyyy_MM_dd", Locale.KOREA);
-        try {
-            Date dateObj = format.parse(date);
-            // Date 객체를 사용하여 요일을 얻음
-            format = new SimpleDateFormat("MM월 dd일 EEEE", Locale.KOREA);
-            date = format.format(dateObj);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        dateText.setText(date);
-
-        String diary = ""; // 일기 내용
-        try {
-            FileInputStream fis = context.openFileInput(filename);
-            byte[] data = new byte[fis.available()];
-            fis.read(data);
-            fis.close();
-            diary = new String(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        diaryText.setText(diary);
+        // 날짜와 일기 내용을 설정합니다.
+        dateText.setText(diary.getDate());
+        diaryText.setText(diary.getContent());
 
         return convertView;
     }
-
-
 }
