@@ -1,6 +1,7 @@
 package com.example.androidprogramming;
 
 import android.content.Context;
+import android.content.Intent; // Intent import 추가
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,10 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -19,11 +18,11 @@ import java.util.Locale;
 
 public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.CalendarViewHolder> {
     private ArrayList<Calendar> dayList;
-    private DiaryDBHelper diaryDBHelper; // DBHelper 인스턴스를 추가합니다.
+    private DiaryDBHelper diaryDBHelper;
 
     public CalendarAdapter(ArrayList<Calendar> dayList, Context context) {
         this.dayList = dayList;
-        this.diaryDBHelper = new DiaryDBHelper(context); // DBHelper 인스턴스를 초기화합니다.
+        this.diaryDBHelper = new DiaryDBHelper(context);
     }
 
     @NonNull
@@ -46,9 +45,8 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
             if (hasDiary) {
                 holder.dayText.setVisibility(View.GONE); // 텍스트를 숨깁니다
                 holder.dayImage.setVisibility(View.VISIBLE); // 이미지를 표시합니다
+                holder.dayImage.setImageResource(R.drawable.emoji); // 이미지 설정 (예시)
 
-                // 이미지를 설정합니다. 이 예시에서는 diaryImage라는 리소스를 사용한다고 가정합니다.
-                holder.dayImage.setImageResource(R.drawable.emoji);
             } else {
                 holder.dayText.setText(String.valueOf(day.get(Calendar.DAY_OF_MONTH)));
                 holder.dayText.setVisibility(View.VISIBLE); // 텍스트를 표시합니다
@@ -71,16 +69,16 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                 int iMonth = day.get(Calendar.MONTH) + 1; // Calendar.MONTH는 0부터 시작
                 int iDay = day.get(Calendar.DAY_OF_MONTH);
 
-                AddFragment addFragment = new AddFragment();
-                // 날짜 데이터를 번들에 담아 프래그먼트로 전달
-                Bundle bundle = new Bundle();
-                bundle.putInt("year", iYear);
-                bundle.putInt("month", iMonth);
-                bundle.putInt("day", iDay);
-                addFragment.setArguments(bundle);
-                ((MainActivity)holder.itemView.getContext()).getSupportFragmentManager().beginTransaction()
-                        .add(R.id.containers, addFragment)
-                        .commit();
+                // AddActivity 실행을 위한 Intent 생성
+                Context context = holder.itemView.getContext();
+                Intent intent = new Intent(context, AddActivity.class);
+                // 데이터를 Intent에 추가
+                intent.putExtra("year", iYear);
+                intent.putExtra("month", iMonth);
+                intent.putExtra("day", iDay);
+                // AddActivity 실행
+                context.startActivity(intent);
+
             }
         });
     }
@@ -92,12 +90,12 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
 
     class CalendarViewHolder extends RecyclerView.ViewHolder {
         TextView dayText;
-        ImageView dayImage; // 추가
+        ImageView dayImage;
 
         public CalendarViewHolder(@NonNull View itemView) {
             super(itemView);
-            dayText = itemView.findViewById(R.id.dayText); // dayText 초기화
-            dayImage = itemView.findViewById(R.id.dayImage); // dayImage 초기화
+            dayText = itemView.findViewById(R.id.dayText);
+            dayImage = itemView.findViewById(R.id.dayImage);
         }
     }
 
