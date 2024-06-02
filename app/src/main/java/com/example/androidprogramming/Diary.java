@@ -1,5 +1,7 @@
 package com.example.androidprogramming;
 
+import java.util.Calendar;
+
 public class Diary {
     private int id;
     private String date;
@@ -30,9 +32,27 @@ public class Diary {
         return date;
     }
 
+    public String getDate2(String date) {
+        String[] dateParts = date.split("_"); // "yyyy_MM_dd" 형식의 날짜를 "_"로 분리
+        int year = Integer.parseInt(dateParts[0]);
+        int month = Integer.parseInt(dateParts[1]);
+        int day = Integer.parseInt(dateParts[2]);
+
+        // Calendar 객체를 사용하여 날짜 형식 변경
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(month - 1, day); // month는 0부터 시작하므로 -1 해줍니다.
+
+        // 변경된 형식의 날짜를 문자열로 반환
+        return calendar.get(Calendar.YEAR) + "년 "
+                + (calendar.get(Calendar.MONTH) + 1) + "월 "
+                + calendar.get(Calendar.DAY_OF_MONTH) + "일";
+    }
+
     public void setDate(String date) {
         this.date = date;
     }
+
+
 
     // weather에 대한 getter와 setter
     public String getWeather() {

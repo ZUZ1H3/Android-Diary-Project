@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="80dp"
         android:orientation="horizontal">
 
@@ -20,7 +21,8 @@
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
-            android:src="@drawable/list" />
+            android:src="@drawable/list"
+            tools:ignore="SpeakableTextPresentCheck"/>
 
         <ImageButton
             android:id="@+id/graphBtn"
@@ -29,7 +31,7 @@
             android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
-
+            tools:ignore="SpeakableTextPresentCheck"
             android:scaleType="centerCrop"
             android:src="@drawable/chart" />
 
@@ -39,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         android:gravity="center">
 
@@ -51,7 +53,7 @@
             android:padding="0sp"
             android:scaleType="centerCrop"
             android:src="@drawable/left"
-            />
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/monthYearText"
@@ -72,13 +74,14 @@
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
-            android:src="@drawable/right"/>
+            android:src="@drawable/right"
+            tools:ignore="SpeakableTextPresentCheck"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp">
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:layout_width="0dp"

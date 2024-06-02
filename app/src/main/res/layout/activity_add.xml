@@ -6,16 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".AddFragment">
+    android:background="@color/white">
 
-    <Button
+    <ImageButton
         android:id="@+id/button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="("
-        android:textSize="20dp"
-        android:layout_marginTop="6dp"
-        android:fontFamily="@font/kd_medium"/>
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/left2"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        tools:ignore="SpeakableTextPresentCheck"/>
 
     <TextView
         android:id="@+id/date"
@@ -23,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="05월 20일"
         android:gravity="center"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:fontFamily="@font/kd_bold"
         android:layout_marginTop="10dp"/>
 
@@ -35,6 +38,7 @@
         android:gravity="center"
         android:textSize="20dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/kd_medium"/>
 
     <HorizontalScrollView
@@ -54,36 +58,66 @@
                 android:orientation="horizontal"
                 android:id="@+id/rGroup_weather">
 
-                <RadioButton android:id="@+id/Sunny"
-                    android:text="Sunny"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:textSize="16dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/sunny"
+                    android:drawableTop="@drawable/weather_sunny"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="sunny">
                 </RadioButton>
 
-                <RadioButton android:id="@+id/Rainy"
-                    android:text="Rainy"
-                    android:layout_width="105dp"
-                    android:textSize="16dp"
-                    android:layout_height="105dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/rainy"
+                    android:drawableTop="@drawable/weather_rainy"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="rainy">
                 </RadioButton>
 
-                <RadioButton android:id="@+id/Cloudy"
-                    android:text="Cloudy"
-                    android:layout_width="105dp"
-                    android:textSize="16dp"
-                    android:layout_height="105dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/cloudy"
+                    android:drawableTop="@drawable/weather_cloudy"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="cloudy">
                 </RadioButton>
 
-                <RadioButton android:id="@+id/Windy"
-                    android:text="Windy"
-                    android:layout_width="105dp"
-                    android:textSize="16dp"
-                    android:layout_height="105dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/windy"
+                    android:drawableTop="@drawable/weather_windy"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="windy">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/lightning"
+                    android:drawableTop="@drawable/weather_lightning"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="lightning">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/snowy"
+                    android:drawableTop="@drawable/weather_snowy"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="snowy">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/rainbow"
+                    android:drawableTop="@drawable/weather_rainbow"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="rainbow">
                 </RadioButton>
             </RadioGroup>
         </LinearLayout>
@@ -97,6 +131,7 @@
         android:gravity="center"
         android:textSize="20dp"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/kd_medium"/>
 
     <HorizontalScrollView
@@ -116,48 +151,98 @@
                 android:orientation="horizontal"
                 android:id="@+id/rGroup_mood">
 
-                <RadioButton android:id="@+id/happy"
-                    android:text="Happy"
-                    android:layout_width="105dp"
-                    android:layout_height="105dp"
-                    android:textSize="16dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/happy"
+                    android:drawableTop="@drawable/mood_happy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="happy">
                 </RadioButton>
 
-                <RadioButton android:id="@+id/sad"
-                    android:text="Sad"
-                    android:layout_width="105dp"
-                    android:textSize="16dp"
-                    android:layout_height="105dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/sad"
+                    android:drawableTop="@drawable/mood_sad"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="sad">
                 </RadioButton>
 
-                <RadioButton android:id="@+id/angry"
-                    android:text="Angry"
-                    android:layout_width="105dp"
-                    android:textSize="16dp"
-                    android:layout_height="105dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/angry"
+                    android:drawableTop="@drawable/mood_angry"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="angry">
                 </RadioButton>
 
-                <RadioButton android:id="@+id/tired"
-                    android:text="tired"
-                    android:layout_width="105dp"
-                    android:textSize="16dp"
-                    android:layout_height="105dp"
-                    android:fontFamily="@font/kd_medium">
+                <RadioButton
+                    android:id="@+id/lucky"
+                    android:drawableTop="@drawable/mood_lucky"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="lucky">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/soso"
+                    android:drawableTop="@drawable/mood_soso"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="soso">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/flutter"
+                    android:drawableTop="@drawable/mood_flutter"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="flutter">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/tired"
+                    android:drawableTop="@drawable/mood_tired"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="tired">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/comfortable"
+                    android:drawableTop="@drawable/mood_comfortable"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="comfortable">
+                </RadioButton>
+
+                <RadioButton
+                    android:id="@+id/exiting"
+                    android:drawableTop="@drawable/mood_exciting"
+                    android:button="@android:color/transparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tag="exiting">
                 </RadioButton>
             </RadioGroup>
         </LinearLayout>
     </HorizontalScrollView>
 
-    <Button
+    <ImageButton
         android:id="@+id/button_write"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="일기 쓰기"
-        android:textSize="20dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
-        android:fontFamily="@font/kd_medium"/>
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/right2"
+        tools:ignore="SpeakableTextPresentCheck"/>
 </LinearLayout>

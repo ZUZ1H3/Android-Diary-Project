@@ -104,5 +104,17 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
         return hasEntry;
     }
 
-
+    public String getMoodOnDate(String date) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT mood FROM diary WHERE date = ?", new String[]{date});
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                String mood = cursor.getString(0);
+                cursor.close();
+                return mood;
+            }
+            cursor.close();
+        }
+        return null;
+    }
 }

@@ -52,7 +52,7 @@ public class ListAdapter extends BaseAdapter {
         Diary diary = diaryList.get(position);
 
         // 날짜와 일기 내용을 설정합니다.
-        dateText.setText(diary.getDate());
+        dateText.setText(diary.getDate2(diary.getDate()));
         diaryText.setText(diary.getContent());
 
         return convertView;

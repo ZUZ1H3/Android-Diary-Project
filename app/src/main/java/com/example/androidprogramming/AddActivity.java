@@ -4,15 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddActivity extends AppCompatActivity {
     private RadioGroup rGroup_weather, rGroup_mood;
-    private Button button_write;
+    private ImageButton button_write;
     private int year, month, day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +44,16 @@ public class AddActivity extends AppCompatActivity {
                 int selectedWeatherId = rGroup_weather.getCheckedRadioButtonId();
                 int selectedMoodId = rGroup_mood.getCheckedRadioButtonId();
 
-                String selectedWeather = ((RadioButton) findViewById(selectedWeatherId)).getText().toString();
-                String selectedMood = ((RadioButton) findViewById(selectedMoodId)).getText().toString();
+                if (selectedWeatherId == -1 || selectedMoodId == -1) {
+                    Toast.makeText(AddActivity.this, "모든 항목을 선택해주세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                RadioButton selectedWeatherButton = findViewById(selectedWeatherId);
+                RadioButton selectedMoodButton = findViewById(selectedMoodId);
+
+                String selectedWeather = selectedWeatherButton.getTag().toString();
+                String selectedMood = selectedMoodButton.getTag().toString();
 
                 // Intent를 사용하여 DiaryActivity를 시작하고 데이터 전달
                 Intent intent = new Intent(AddActivity.this, DiaryActivity.class);
@@ -58,6 +68,7 @@ public class AddActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
     }
 }

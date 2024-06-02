@@ -3,7 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/left2"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/textView_date"
@@ -19,55 +31,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="40dp">
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="오늘의 날씨:  "
-            android:fontFamily="@font/kd_medium"
-            android:textSize="20dp" />
-
-        <TextView
+        android:layout_marginTop="30dp">
+        <ImageView
             android:id="@+id/textView_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cloudy"
-            android:fontFamily="@font/kd_medium"
-            android:textSize="20dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기분:  "
-            android:fontFamily="@font/kd_medium"
-            android:textSize="20dp" />
-        <TextView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/weather_sunny"/>
+
+        <ImageView
             android:id="@+id/textView_mood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HAPPY"
-            android:fontFamily="@font/kd_medium"
-            android:textSize="20dp" />
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/mood_lucky"/>
     </LinearLayout>
 
     <EditText
         android:id="@+id/editText_diary"
         android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_height="450dp"
         android:hint="일기를 입력하세요."
         android:fontFamily="@font/kd_medium"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="저장"
-        android:fontFamily="@font/kd_medium"/>
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/save"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

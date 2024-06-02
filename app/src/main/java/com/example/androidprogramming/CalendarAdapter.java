@@ -3,7 +3,6 @@ package com.example.androidprogramming;
 import android.content.Context;
 import android.content.Intent; // Intent import 추가
 import android.graphics.Color;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,13 +39,44 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         if (day == null) {
             holder.dayText.setText(""); // 빈 칸
         } else {
-            boolean hasDiary = checkDiaryData(day);
+            String mood = checkDiaryMood(day);
 
-            if (hasDiary) {
+            if (mood != null) {
                 holder.dayText.setVisibility(View.GONE); // 텍스트를 숨깁니다
                 holder.dayImage.setVisibility(View.VISIBLE); // 이미지를 표시합니다
-                holder.dayImage.setImageResource(R.drawable.emoji); // 이미지 설정 (예시)
 
+                switch (mood) {
+                    case "happy":
+                        holder.dayImage.setImageResource(R.drawable.mood_happy);
+                        break;
+                    case "sad":
+                        holder.dayImage.setImageResource(R.drawable.mood_sad);
+                        break;
+                    case "angry":
+                        holder.dayImage.setImageResource(R.drawable.mood_angry);
+                        break;
+                    case "lucky":
+                        holder.dayImage.setImageResource(R.drawable.mood_lucky);
+                        break;
+                    case "soso":
+                        holder.dayImage.setImageResource(R.drawable.mood_soso);
+                        break;
+                    case "flutter":
+                        holder.dayImage.setImageResource(R.drawable.mood_flutter);
+                        break;
+                    case "tired":
+                        holder.dayImage.setImageResource(R.drawable.mood_tired);
+                        break;
+                    case "comfortable":
+                        holder.dayImage.setImageResource(R.drawable.mood_comfortable);
+                        break;
+                    case "exiting":
+                        holder.dayImage.setImageResource(R.drawable.mood_exciting);
+                        break;
+                    default:
+                        holder.dayImage.setImageResource(R.drawable.emoji); // 기본 이미지
+                        break;
+                }
             } else {
                 holder.dayText.setText(String.valueOf(day.get(Calendar.DAY_OF_MONTH)));
                 holder.dayText.setVisibility(View.VISIBLE); // 텍스트를 표시합니다
@@ -78,7 +108,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                 intent.putExtra("day", iDay);
                 // AddActivity 실행
                 context.startActivity(intent);
-
             }
         });
     }
@@ -99,9 +128,9 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         }
     }
 
-    private boolean checkDiaryData(Calendar day) {
+    private String checkDiaryMood(Calendar day) {
         String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(day.getTime());
-        // DBHelper를 사용하여 해당 날짜에 일기 데이터가 있는지 확인합니다.
-        return diaryDBHelper.hasDiaryOnDate(date);
+        // DBHelper를 사용하여 해당 날짜의 기분 데이터를 가져옵니다.
+        return diaryDBHelper.getMoodOnDate(date);
     }
 }
