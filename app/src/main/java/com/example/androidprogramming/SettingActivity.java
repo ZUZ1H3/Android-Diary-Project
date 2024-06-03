@@ -6,12 +6,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class SettingActivity extends AppCompatActivity {
-    private RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
-    private Button btnApply;
+    private RadioButton radioButton1, radioButton2, radioButton3, radioButton4, radioButton5;
+    private ImageButton btnApply;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,8 @@ public class SettingActivity extends AppCompatActivity {
         radioButton2 = findViewById(R.id.radioButton2);
         radioButton3 = findViewById(R.id.radioButton3);
         radioButton4 = findViewById(R.id.radioButton4);
+        radioButton5 = findViewById(R.id.radioButton5);
+
 
         btnApply = findViewById(R.id.btnApply);
 
@@ -37,6 +40,8 @@ public class SettingActivity extends AppCompatActivity {
                     selectedBackground = R.drawable.background3;
                 }else if (radioButton4.isChecked()) {
                     selectedBackground = R.drawable.background4;
+                }else if (radioButton5.isChecked()) {
+                    selectedBackground = R.drawable.background5;
                 }
 
                 SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
@@ -44,7 +49,7 @@ public class SettingActivity extends AppCompatActivity {
                 editor.putInt("background", selectedBackground);
                 editor.apply();
 
-                Toast.makeText(SettingActivity.this, "배경 이미지가 변경되었습니다..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SettingActivity.this, "선택한 배경으로 변경되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

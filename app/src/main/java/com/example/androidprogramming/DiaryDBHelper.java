@@ -47,7 +47,7 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
     public ArrayList<Diary> getAllDiaries() {
         ArrayList<Diary> diaryList = new ArrayList<>();
 
-        String selectQuery = "SELECT * FROM diary";
+        String selectQuery = "SELECT * FROM diary ORDER BY date DESC";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

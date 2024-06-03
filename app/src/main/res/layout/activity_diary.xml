@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:padding="16dp">
 
     <ImageButton
         android:id="@+id/button_back"
@@ -24,43 +23,45 @@
         android:text="05월 20일"
         android:gravity="center"
         android:textSize="20dp"
-        android:fontFamily="@font/kd_bold"
+        android:fontFamily="@font/diary"
         android:layout_marginTop="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp">
         <ImageView
             android:id="@+id/textView_weather"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/weather_sunny"/>
 
         <ImageView
             android:id="@+id/textView_mood"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/mood_lucky"/>
     </LinearLayout>
 
     <EditText
         android:id="@+id/editText_diary"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:hint="일기를 입력하세요."
-        android:fontFamily="@font/kd_medium"/>
+        android:layout_height="440dp"
+        android:hint=" 일기를 입력하세요."
+        android:fontFamily="@font/kd_medium"
+        android:background="@drawable/edittext_custom"/>
 
     <ImageButton
         android:id="@+id/button_save"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/save"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="10dp"/>
 
 </LinearLayout>

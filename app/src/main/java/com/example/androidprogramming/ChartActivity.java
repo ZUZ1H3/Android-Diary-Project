@@ -1,20 +1,25 @@
 package com.example.androidprogramming;
 
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,13 +27,17 @@ public class ChartActivity extends AppCompatActivity {
 
     PieChart pieChart; // PieChart 객체 선언
     DiaryDBHelper dbHelper; // 데이터베이스 헬퍼 객체 선언
-
+    ImageView top1Image, top2Image, top3Image; // 상위 1위 이미지를 나타낼 ImageView 선언
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart); // 레이아웃 설정
 
         pieChart = findViewById(R.id.piechart); // PieChart 뷰 초기화
+        top1Image = findViewById(R.id.top1_image);
+        top2Image = findViewById(R.id.top2_image);
+        top3Image = findViewById(R.id.top3_image);
+
         dbHelper = new DiaryDBHelper(this); // DiaryDBHelper 객체 초기화
 
         pieChart.setUsePercentValues(true); // 퍼센트 값 사용 설정 해제
@@ -38,15 +47,10 @@ public class ChartActivity extends AppCompatActivity {
         pieChart.setDragDecelerationFrictionCoef(0.95f); // 드래그 감속 마찰 계수 설정
 
         pieChart.setDrawHoleEnabled(true); // 구멍 그리기 비활성화
-        //pieChart.setHoleColor(Color.WHITE); // 구멍 색상 설정
-        //pieChart.setTransparentCircleRadius(61f); // 투명 원의 반지름 설정
+        pieChart.setHoleColor(Color.TRANSPARENT); // 구멍 색상 설정을 투명으로
+        pieChart.setTransparentCircleRadius(61f); // 투명 원의 반지름 설정
 
         ArrayList<PieEntry> yValues = loadMoodData(); // 데이터 로드
-
-        Description description = new Description(); // 설명 객체 생성
-        description.setText("나의 감정"); // 설명 텍스트 설정
-        description.setTextSize(15); // 설명 텍스트 크기 설정
-        pieChart.setDescription(description); // 차트에 설명 설정
 
         pieChart.animateY(1000, Easing.EaseInOutCubic); // 애니메이션 설정
 
@@ -78,12 +82,23 @@ public class ChartActivity extends AppCompatActivity {
         }
         dataSet.setColors(colors); // 데이터셋에 색상 설정
 
+
         PieData data = new PieData(dataSet); // PieData 객체 생성
-        data.setValueTextSize(10f); // 값 텍스트 크기 설정
+        data.setValueTextSize(12f); // 값 텍스트 크기 설정
         data.setValueTextColor(Color.BLACK); // 값 텍스트 색상 설정
 
-
         pieChart.setData(data); // 차트에 데이터 설정
+
+        // 상위 3개 항목을 TextView에 설정
+        setTopMoodImages(yValues);
+
+        // SharedPreferences에서 배경 이미지 읽어오기
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+        // 배경 이미지 설정하기
+        View rootView = findViewById(android.R.id.content);
+        rootView.setBackgroundResource(background);
     }
 
     // 데이터베이스에서 mood 데이터를 로드하는 메서드
@@ -108,4 +123,58 @@ public class ChartActivity extends AppCompatActivity {
 
         return yValues; // 데이터 반환
     }
+
+    private void setTopMoodImages(ArrayList<PieEntry> yValues) {
+        // 상위 1위부터 3위까지 순회하며 이미지 설정
+        for (int i = 0; i < Math.min(yValues.size(), 3); i++) {
+            PieEntry topMood = yValues.get(i); // 상위 1위부터 가져오기
+            String mood = topMood.getLabel(); // mood 값 가져오기
+
+            int imageResId;
+            switch (mood) {
+                case "happy":
+                    imageResId = R.drawable.mood_happy;
+                    break;
+                case "sad":
+                    imageResId = R.drawable.mood_sad;
+                    break;
+                case "tired":
+                    imageResId = R.drawable.mood_tired;
+                    break;
+                case "angry":
+                    imageResId = R.drawable.mood_angry;
+                    break;
+                case "comfortable":
+                    imageResId = R.drawable.mood_comfortable;
+                    break;
+                case "exciting":
+                    imageResId = R.drawable.mood_exciting;
+                    break;
+                case "flutter":
+                    imageResId = R.drawable.mood_flutter;
+                    break;
+                case "lucky":
+                    imageResId = R.drawable.mood_lucky;
+                    break;
+                case "soso":
+                    imageResId = R.drawable.mood_soso;
+                    break;
+                default:
+                    imageResId = R.drawable.mood_happy; // 기본 이미지 설정
+                    break;
+            }
+
+            // 이미지뷰 ID 설정
+            int imageViewId = getResources().getIdentifier("top" + (i + 1) + "_image", "id", getPackageName());
+
+            ImageView imageView = findViewById(imageViewId); // 해당 ImageView 가져오기
+
+            // 이미지 설정
+            if (imageView != null) {
+                imageView.setImageResource(imageResId); // ImageView에 이미지 설정
+            }
+        }
+    }
+
+
 }

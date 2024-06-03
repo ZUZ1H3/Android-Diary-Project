@@ -33,7 +33,7 @@ public class Diary {
     }
 
     public String getDate2(String date) {
-        String[] dateParts = date.split("_"); // "yyyy_MM_dd" 형식의 날짜를 "_"로 분리
+        String[] dateParts = date.split("-"); // "yyyy-MM-dd" 형식의 날짜를 "-"로 분리
         int year = Integer.parseInt(dateParts[0]);
         int month = Integer.parseInt(dateParts[1]);
         int day = Integer.parseInt(dateParts[2]);

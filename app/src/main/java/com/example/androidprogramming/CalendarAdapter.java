@@ -129,7 +129,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
     }
 
     private String checkDiaryMood(Calendar day) {
-        String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(day.getTime());
+        String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(day.getTime());
         // DBHelper를 사용하여 해당 날짜의 기분 데이터를 가져옵니다.
         return diaryDBHelper.getMoodOnDate(date);
     }

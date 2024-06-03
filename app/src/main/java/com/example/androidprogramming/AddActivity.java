@@ -1,6 +1,7 @@
 package com.example.androidprogramming;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,13 @@ public class AddActivity extends AppCompatActivity {
             dateText.setText(month + "월 " + day + "일");
         }
 
+        // SharedPreferences에서 배경 이미지 읽어오기
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+        // 배경 이미지 설정하기
+        View rootView = findViewById(android.R.id.content);
+        rootView.setBackgroundResource(background);
 
         button_write.setOnClickListener(new View.OnClickListener() {
             @Override

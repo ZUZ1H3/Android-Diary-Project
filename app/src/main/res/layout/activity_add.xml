@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@color/white">
+    android:padding="16dp">
 
     <ImageButton
         android:id="@+id/button_back"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
         android:src="@drawable/left2"
@@ -27,7 +26,7 @@
         android:text="05월 20일"
         android:gravity="center"
         android:textSize="20sp"
-        android:fontFamily="@font/kd_bold"
+        android:fontFamily="@font/diary"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -37,9 +36,9 @@
         android:text="오늘의 날씨를 알려주세요!"
         android:gravity="center"
         android:textSize="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/kd_medium"/>
+        android:fontFamily="@font/diary"/>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -69,7 +68,6 @@
                 <RadioButton
                     android:id="@+id/rainy"
                     android:drawableTop="@drawable/weather_rainy"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="rainy">
@@ -78,7 +76,6 @@
                 <RadioButton
                     android:id="@+id/cloudy"
                     android:drawableTop="@drawable/weather_cloudy"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="cloudy">
@@ -87,7 +84,6 @@
                 <RadioButton
                     android:id="@+id/windy"
                     android:drawableTop="@drawable/weather_windy"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="windy">
@@ -96,7 +92,6 @@
                 <RadioButton
                     android:id="@+id/lightning"
                     android:drawableTop="@drawable/weather_lightning"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="lightning">
@@ -105,7 +100,6 @@
                 <RadioButton
                     android:id="@+id/snowy"
                     android:drawableTop="@drawable/weather_snowy"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="snowy">
@@ -114,7 +108,6 @@
                 <RadioButton
                     android:id="@+id/rainbow"
                     android:drawableTop="@drawable/weather_rainbow"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="rainbow">
@@ -130,9 +123,9 @@
         android:text="오늘의 기분은 어땠나요?"
         android:gravity="center"
         android:textSize="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/kd_medium"/>
+        android:fontFamily="@font/diary"/>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -162,7 +155,6 @@
                 <RadioButton
                     android:id="@+id/sad"
                     android:drawableTop="@drawable/mood_sad"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="sad">
@@ -171,7 +163,6 @@
                 <RadioButton
                     android:id="@+id/angry"
                     android:drawableTop="@drawable/mood_angry"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="angry">
@@ -180,7 +171,6 @@
                 <RadioButton
                     android:id="@+id/lucky"
                     android:drawableTop="@drawable/mood_lucky"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="lucky">
@@ -189,7 +179,6 @@
                 <RadioButton
                     android:id="@+id/soso"
                     android:drawableTop="@drawable/mood_soso"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="soso">
@@ -198,7 +187,6 @@
                 <RadioButton
                     android:id="@+id/flutter"
                     android:drawableTop="@drawable/mood_flutter"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="flutter">
@@ -207,7 +195,6 @@
                 <RadioButton
                     android:id="@+id/tired"
                     android:drawableTop="@drawable/mood_tired"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="tired">
@@ -216,7 +203,6 @@
                 <RadioButton
                     android:id="@+id/comfortable"
                     android:drawableTop="@drawable/mood_comfortable"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="comfortable">
@@ -225,7 +211,6 @@
                 <RadioButton
                     android:id="@+id/exciting"
                     android:drawableTop="@drawable/mood_exciting"
-                    android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:tag="exciting">
@@ -236,10 +221,10 @@
 
     <ImageButton
         android:id="@+id/button_write"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"

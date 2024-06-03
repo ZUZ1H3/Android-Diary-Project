@@ -14,13 +14,12 @@
 
         <ImageButton
             android:id="@+id/button_back"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
             android:src="@drawable/left2" />
-
 
         <TextView
             android:id="@+id/textViewSelectBackground"
@@ -30,7 +29,7 @@
             android:layout_weight="1"
             android:fontFamily="@font/diary"
             android:gravity="center"
-            android:text="배경 이미지 선택"
+            android:text="배경 선택"
             android:textSize="20sp" />
 
         <View
@@ -42,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -78,6 +77,12 @@
                 <RadioButton
                     android:id="@+id/radioButton4"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="70dp" />
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </RadioGroup>
         </LinearLayout>
@@ -89,43 +94,52 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:src="@drawable/background1"
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="20dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:src="@drawable/background2"
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="20dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:src="@drawable/background3"
                 android:scaleType="centerCrop"
                 android:layout_marginBottom="20dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:src="@drawable/background4"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:src="@drawable/background5"
+                android:scaleType="centerCrop"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnApply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/radioGroupBackground"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="저장"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/check"
         android:layout_gravity="center"/>
 
 </LinearLayout>

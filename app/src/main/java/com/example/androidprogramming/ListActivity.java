@@ -1,6 +1,8 @@
 package com.example.androidprogramming;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
@@ -27,5 +29,13 @@ public class ListActivity extends AppCompatActivity {
         // 리스트뷰에 어댑터를 설정합니다.
         adapter = new ListAdapter(this, diaryList);
         listView.setAdapter(adapter);
+
+        // SharedPreferences에서 배경 이미지 읽어오기
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+        // 배경 이미지 설정하기
+        View rootView = findViewById(android.R.id.content);
+        rootView.setBackgroundResource(background);
     }
 }

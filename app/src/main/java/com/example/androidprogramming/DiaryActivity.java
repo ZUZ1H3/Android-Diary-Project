@@ -2,6 +2,7 @@ package com.example.androidprogramming;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -106,6 +107,14 @@ public class DiaryActivity extends AppCompatActivity {
                     textView_mood.setImageResource(R.drawable.mood_exciting);
                     break;
             }
+
+            // SharedPreferences에서 배경 이미지 읽어오기
+            SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+            int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+            // 배경 이미지 설정하기
+            View rootView = findViewById(android.R.id.content);
+            rootView.setBackgroundResource(background);
         }
 
         button_save.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +123,7 @@ public class DiaryActivity extends AppCompatActivity {
                 String content = editText_diary.getText().toString();
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year, month - 1, day);
-                String date = new SimpleDateFormat("yyyy_MM_dd", Locale.getDefault()).format(calendar.getTime());
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(calendar.getTime());
 
                 saveDiary(date, weather, mood, content);
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

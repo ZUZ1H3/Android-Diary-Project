@@ -83,7 +83,59 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        setContentView(R.layout.activity_main);
 
+        ImageButton listBtn = findViewById(R.id.listBtn);
+        ImageButton graphBtn = findViewById(R.id.graphBtn);
+        ImageButton settingBtn = findViewById(R.id.settingBtn);
+        ImageButton preBtn = findViewById(R.id.preBtn);
+        ImageButton nextBtn = findViewById(R.id.nextBtn);
+
+        monthYearText = findViewById(R.id.monthYearText);
+        recyclerView = findViewById(R.id.recyclerview);
+
+        calendar.setTime(now);
+        setMonthView();
+
+        listBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        graphBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ChartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        preBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.MONTH, -1);
+                setMonthView();
+            }
+        });
+
+        nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calendar.add(Calendar.MONTH, 1);
+                setMonthView();
+            }
+        });
         // SharedPreferences에서 배경 이미지 읽어오기
         SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
         int background = sharedPreferences.getInt("background", R.drawable.background1);
