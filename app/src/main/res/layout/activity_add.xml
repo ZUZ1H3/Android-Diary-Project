@@ -223,12 +223,12 @@
                 </RadioButton>
 
                 <RadioButton
-                    android:id="@+id/exiting"
+                    android:id="@+id/exciting"
                     android:drawableTop="@drawable/mood_exciting"
                     android:button="@android:color/transparent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="exiting">
+                    android:tag="exciting">
                 </RadioButton>
             </RadioGroup>
         </LinearLayout>
