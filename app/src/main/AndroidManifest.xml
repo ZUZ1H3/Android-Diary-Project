@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AndroidProgramming"
         tools:targetApi="31">
         <activity
+            android:name=".ChartActivity"
+            android:exported="false" />
+        <activity
             android:name=".DiaryActivity"
             android:exported="false" />
         <activity
@@ -27,8 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ListActivity"/>
-        <activity android:name=".SettingActivity"/>
-
+        <activity android:name=".ListActivity" />
+        <activity android:name=".ChartActivity" />
     </application>
+
 </manifest>

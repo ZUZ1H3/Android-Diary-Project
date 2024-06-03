@@ -2,4 +2,7 @@
     <string name="app_name">androidProgramming</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="graph1_title">기분별 비율</string>
+    <string name="graph2_title">요일별 기분</string>
+    <string name="graph3_title">기분 변화</string>
 </resources>

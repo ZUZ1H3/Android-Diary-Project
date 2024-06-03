@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import java.text.SimpleDateFormat;
@@ -49,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         graphBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChartActivity.class);
                 startActivity(intent);
             }
         });
