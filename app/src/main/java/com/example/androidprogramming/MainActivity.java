@@ -1,6 +1,7 @@
 package com.example.androidprogramming;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton listBtn = findViewById(R.id.listBtn);
         ImageButton graphBtn = findViewById(R.id.graphBtn);
+        ImageButton settingBtn = findViewById(R.id.settingBtn);
         ImageButton preBtn = findViewById(R.id.preBtn);
         ImageButton nextBtn = findViewById(R.id.nextBtn);
 
@@ -52,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+
         preBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +78,20 @@ public class MainActivity extends AppCompatActivity {
                 setMonthView();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // SharedPreferences에서 배경 이미지 읽어오기
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+        // 배경 이미지 설정하기
+        View rootView = findViewById(android.R.id.content);
+        rootView.setBackgroundResource(background);
+
     }
 
     private void setMonthView() {

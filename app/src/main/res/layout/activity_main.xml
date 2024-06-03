@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="80dp"
         android:orientation="horizontal">
 
@@ -35,12 +34,27 @@
             android:scaleType="centerCrop"
             android:src="@drawable/chart" />
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageButton
+            android:id="@+id/settingBtn"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:background="@android:color/transparent"
+            android:padding="0sp"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/setting" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="50dp"
         android:orientation="horizontal"
         android:gravity="center">
