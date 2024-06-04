@@ -7,8 +7,8 @@
 
     <ImageButton
         android:id="@+id/button_back"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
         android:src="@drawable/left2"

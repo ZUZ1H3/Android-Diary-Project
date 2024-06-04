@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -25,9 +26,11 @@ import java.util.Map;
 
 public class ChartActivity extends AppCompatActivity {
 
-    PieChart pieChart; // PieChart 객체 선언
-    DiaryDBHelper dbHelper; // 데이터베이스 헬퍼 객체 선언
-    ImageView top1Image, top2Image, top3Image; // 상위 1위 이미지를 나타낼 ImageView 선언
+    private PieChart pieChart; // PieChart 객체 선언
+    private DiaryDBHelper dbHelper; // 데이터베이스 헬퍼 객체 선언
+    private ImageView top1Image, top2Image, top3Image; // 상위 1위 이미지를 나타낼 ImageView 선언
+    private ImageButton button_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,13 @@ public class ChartActivity extends AppCompatActivity {
         top1Image = findViewById(R.id.top1_image);
         top2Image = findViewById(R.id.top2_image);
         top3Image = findViewById(R.id.top3_image);
+        button_back = findViewById(R.id.button_back);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         dbHelper = new DiaryDBHelper(this); // DiaryDBHelper 객체 초기화
 

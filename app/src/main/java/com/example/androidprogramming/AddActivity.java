@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddActivity extends AppCompatActivity {
     private RadioGroup rGroup_weather, rGroup_mood;
-    private ImageButton button_write;
+    private ImageButton button_back, button_write;
     private int year, month, day;
 
     @Override
@@ -26,6 +26,7 @@ public class AddActivity extends AppCompatActivity {
         rGroup_weather = findViewById(R.id.rGroup_weather);
         rGroup_mood = findViewById(R.id.rGroup_mood);
         button_write = findViewById(R.id.button_write);
+        button_back =findViewById(R.id.button_back);
 
         // 날짜 데이터 받아오기
         Bundle bundle = getIntent().getExtras();
@@ -47,6 +48,12 @@ public class AddActivity extends AppCompatActivity {
         View rootView = findViewById(android.R.id.content);
         rootView.setBackgroundResource(background);
 
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         button_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

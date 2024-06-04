@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class SettingActivity extends AppCompatActivity {
     private RadioButton radioButton1, radioButton2, radioButton3, radioButton4, radioButton5;
-    private ImageButton btnApply;
+    private ImageButton button_save, button_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,16 @@ public class SettingActivity extends AppCompatActivity {
         radioButton3 = findViewById(R.id.radioButton3);
         radioButton4 = findViewById(R.id.radioButton4);
         radioButton5 = findViewById(R.id.radioButton5);
+        button_back = findViewById(R.id.button_back);
+        button_save = findViewById(R.id.button_save);
 
-
-        btnApply = findViewById(R.id.btnApply);
-
-        btnApply.setOnClickListener(new View.OnClickListener() {
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        button_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int selectedBackground = R.drawable.background4;

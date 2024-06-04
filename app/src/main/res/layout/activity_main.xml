@@ -14,8 +14,8 @@
 
         <ImageButton
             android:id="@+id/listBtn"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
@@ -25,8 +25,8 @@
 
         <ImageButton
             android:id="@+id/graphBtn"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="16dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
@@ -41,8 +41,8 @@
 
         <ImageButton
             android:id="@+id/settingBtn"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
             tools:ignore="SpeakableTextPresentCheck"
@@ -61,8 +61,8 @@
 
         <ImageButton
             android:id="@+id/preBtn"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
@@ -79,12 +79,12 @@
             android:textColor="@color/black"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textSize="26sp"></TextView>
+            android:textSize="30dp"/>
 
         <ImageButton
             android:id="@+id/nextBtn"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
@@ -105,7 +105,7 @@
             android:text="일"
             android:textAlignment="center"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -116,7 +116,7 @@
             android:text="월"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -127,7 +127,7 @@
             android:text="화"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -138,7 +138,7 @@
             android:text="수"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -149,7 +149,7 @@
             android:text="목"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -160,7 +160,7 @@
             android:text="금"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -171,7 +171,7 @@
             android:text="토"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
     </LinearLayout>
 

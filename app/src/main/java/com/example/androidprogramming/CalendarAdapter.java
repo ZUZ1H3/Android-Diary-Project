@@ -91,6 +91,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
             holder.dayText.setTextColor(Color.RED);
         }
 
+
         // 날짜 클릭 이벤트
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
