@@ -107,7 +107,7 @@ public class ChartActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase(); // 읽기 가능한 데이터베이스 가져오기
 
         // Mood 데이터를 그룹화하고 카운트
-        String query = "SELECT mood, COUNT(*) as count FROM diary GROUP BY mood";
+        String query = "SELECT mood, COUNT(*) as count FROM diary GROUP BY mood ORDER BY COUNT DESC";
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
@@ -125,11 +125,9 @@ public class ChartActivity extends AppCompatActivity {
     }
 
     private void setTopMoodImages(ArrayList<PieEntry> yValues) {
-        // 상위 1위부터 3위까지 순회하며 이미지 설정
         for (int i = 0; i < Math.min(yValues.size(), 3); i++) {
-            PieEntry topMood = yValues.get(i); // 상위 1위부터 가져오기
-            String mood = topMood.getLabel(); // mood 값 가져오기
-
+            PieEntry topMood = yValues.get(i);
+            String mood = topMood.getLabel();
             int imageResId;
             switch (mood) {
                 case "happy":
@@ -175,6 +173,4 @@ public class ChartActivity extends AppCompatActivity {
             }
         }
     }
-
-
 }
