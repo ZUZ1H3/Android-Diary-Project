@@ -17,6 +17,7 @@ public class AddActivity extends AppCompatActivity {
     private RadioGroup rGroup_weather, rGroup_mood;
     private ImageButton button_write;
     private int year, month, day;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,7 @@ public class AddActivity extends AppCompatActivity {
 
             // 날짜를 텍스트뷰에 표시
             TextView dateText = findViewById(R.id.date);
-            dateText.setText(month + "월 " + day + "일");
+            dateText.setText(year + "년 " + month + "월 " + day + "일");
         }
 
         // SharedPreferences에서 배경 이미지 읽어오기

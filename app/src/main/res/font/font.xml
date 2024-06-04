@@ -4,16 +4,4 @@
     <font android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/diary"/>
-
-    <font android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/kd_bold"/>
-
-    <font android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/kd_medium"/>
-
-    <font android:fontStyle="normal"
-        android:fontWeight="400"
-        android:font="@font/kd_light"/>
 </font-family>

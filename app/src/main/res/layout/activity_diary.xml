@@ -11,57 +11,62 @@
         android:layout_height="26dp"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
-        android:src="@drawable/left2"
         android:background="@android:color/transparent"
         android:padding="0sp"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/left2" />
 
     <TextView
         android:id="@+id/textView_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="05월 20일"
-        android:gravity="center"
-        android:textSize="20dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/diary"
-        android:layout_marginTop="10dp"/>
+        android:gravity="center"
+        android:text="05월 20일"
+        android:textSize="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
+
         <ImageView
             android:id="@+id/ImageView_weather"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/weather_sunny"/>
+            android:src="@drawable/weather_sunny" />
 
         <ImageView
             android:id="@+id/ImageView_mood"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/mood_lucky"/>
+            android:src="@drawable/mood_lucky" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/editText_diary"
         android:layout_width="match_parent"
-        android:layout_height="440dp"
-        android:hint=" 일기를 입력하세요."
-        android:fontFamily="@font/kd_medium"
-        android:background="@drawable/edittext_custom"/>
+        android:layout_height="430dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/diary"
+        android:textSize="20sp"
+        android:gravity="top"
+        android:hint=" 일기를 입력하세요." />
 
     <ImageButton
         android:id="@+id/button_save"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
-        android:src="@drawable/save"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="10dp"/>
+        android:src="@drawable/save" />
 
 </LinearLayout>
