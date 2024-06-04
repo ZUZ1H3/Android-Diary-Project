@@ -24,7 +24,7 @@ import java.util.Locale;
 public class DiaryActivity extends AppCompatActivity {
 
     private TextView textView_date;
-    private ImageView textView_weather, textView_mood;
+    private ImageView ImageView_weather, ImageView_mood;
     private EditText editText_diary;
     private ImageButton button_save;
 
@@ -39,8 +39,8 @@ public class DiaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_diary);
 
         textView_date = findViewById(R.id.textView_date);
-        textView_weather = findViewById(R.id.textView_weather);
-        textView_mood = findViewById(R.id.textView_mood);
+        ImageView_weather = findViewById(R.id.ImageView_weather);
+        ImageView_mood = findViewById(R.id.ImageView_mood);
         editText_diary = findViewById(R.id.editText_diary);
         button_save = findViewById(R.id.button_save);
 
@@ -57,54 +57,54 @@ public class DiaryActivity extends AppCompatActivity {
             textView_date.setText(String.format(Locale.getDefault(), "%d년 %02d월 %02d일", year, month, day));
             switch (weather) {
                 case "sunny":
-                    textView_weather.setImageResource(R.drawable.weather_sunny);
+                    ImageView_weather.setImageResource(R.drawable.weather_sunny);
                     break;
                 case "rainy":
-                    textView_weather.setImageResource(R.drawable.weather_rainy);
+                    ImageView_weather.setImageResource(R.drawable.weather_rainy);
                     break;
                 case "cloudy":
-                    textView_weather.setImageResource(R.drawable.weather_cloudy);
+                    ImageView_weather.setImageResource(R.drawable.weather_cloudy);
                     break;
                 case "windy":
-                    textView_weather.setImageResource(R.drawable.weather_windy);
+                    ImageView_weather.setImageResource(R.drawable.weather_windy);
                     break;
                 case "lightning":
-                    textView_weather.setImageResource(R.drawable.weather_lightning);
+                    ImageView_weather.setImageResource(R.drawable.weather_lightning);
                     break;
                 case "snowy":
-                    textView_weather.setImageResource(R.drawable.weather_snowy);
+                    ImageView_weather.setImageResource(R.drawable.weather_snowy);
                     break;
                 case "rainbow":
-                    textView_weather.setImageResource(R.drawable.weather_rainbow);
+                    ImageView_weather.setImageResource(R.drawable.weather_rainbow);
                     break;
             }
             switch (mood) {
                 case "happy":
-                    textView_mood.setImageResource(R.drawable.mood_happy);
+                    ImageView_mood.setImageResource(R.drawable.mood_happy);
                     break;
                 case "sad":
-                    textView_mood.setImageResource(R.drawable.mood_sad);
+                    ImageView_mood.setImageResource(R.drawable.mood_sad);
                     break;
                 case "angry":
-                    textView_mood.setImageResource(R.drawable.mood_angry);
+                    ImageView_mood.setImageResource(R.drawable.mood_angry);
                     break;
                 case "lucky":
-                    textView_mood.setImageResource(R.drawable.mood_lucky);
+                    ImageView_mood.setImageResource(R.drawable.mood_lucky);
                     break;
                 case "soso":
-                    textView_mood.setImageResource(R.drawable.mood_soso);
+                    ImageView_mood.setImageResource(R.drawable.mood_soso);
                     break;
                 case "flutter":
-                    textView_mood.setImageResource(R.drawable.mood_flutter);
+                    ImageView_mood.setImageResource(R.drawable.mood_flutter);
                     break;
                 case "tired":
-                    textView_mood.setImageResource(R.drawable.mood_tired);
+                    ImageView_mood.setImageResource(R.drawable.mood_tired);
                     break;
                 case "comfortable":
-                    textView_mood.setImageResource(R.drawable.mood_comfortable);
+                    ImageView_mood.setImageResource(R.drawable.mood_comfortable);
                     break;
                 case "exciting":
-                    textView_mood.setImageResource(R.drawable.mood_exciting);
+                    ImageView_mood.setImageResource(R.drawable.mood_exciting);
                     break;
             }
 

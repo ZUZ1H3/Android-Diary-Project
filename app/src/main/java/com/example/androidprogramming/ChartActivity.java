@@ -160,7 +160,7 @@ public class ChartActivity extends AppCompatActivity {
                     imageResId = R.drawable.mood_soso;
                     break;
                 default:
-                    imageResId = R.drawable.mood_happy; // 기본 이미지 설정
+                    imageResId = R.drawable.question; // 기본 이미지 설정
                     break;
             }
 

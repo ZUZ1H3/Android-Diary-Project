@@ -33,13 +33,13 @@
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp">
         <ImageView
-            android:id="@+id/textView_weather"
+            android:id="@+id/ImageView_weather"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/weather_sunny"/>
 
         <ImageView
-            android:id="@+id/textView_mood"
+            android:id="@+id/ImageView_mood"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/mood_lucky"/>
