@@ -74,7 +74,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                         holder.dayImage.setImageResource(R.drawable.mood_exciting);
                         break;
                     default:
-                        holder.dayImage.setImageResource(R.drawable.emoji); // 기본 이미지
+                        holder.dayImage.setImageResource(R.drawable.question); // 기본 이미지
                         break;
                 }
             } else {

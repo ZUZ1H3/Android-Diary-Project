@@ -20,35 +20,35 @@
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
-            android:src="@drawable/list"
-            tools:ignore="SpeakableTextPresentCheck"/>
+            android:src="@drawable/ic_list"
+            tools:ignore="SpeakableTextPresentCheck" />
+
 
         <ImageButton
             android:id="@+id/graphBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="22dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
-            tools:ignore="SpeakableTextPresentCheck"
             android:scaleType="centerCrop"
-            android:src="@drawable/chart" />
+            android:src="@drawable/ic_chart"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+
 
         <ImageButton
             android:id="@+id/settingBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginLeft="22dp"
+
+            android:layout_marginRight="16dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
-            tools:ignore="SpeakableTextPresentCheck"
             android:scaleType="centerCrop"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/setting" />
+            android:src="@drawable/ic_setting"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
@@ -56,8 +56,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/preBtn"
@@ -66,20 +66,20 @@
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
-            android:src="@drawable/left"
+            android:src="@drawable/ic_left"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/monthYearText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/diary"
             android:text="2024년 05월"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textSize="30dp"/>
+            android:textSize="30dp" />
 
         <ImageButton
             android:id="@+id/nextBtn"
@@ -88,8 +88,8 @@
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
-            android:src="@drawable/right"
-            tools:ignore="SpeakableTextPresentCheck"/>
+            android:src="@drawable/ic_right"
+            tools:ignore="SpeakableTextPresentCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -178,6 +178,18 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content" />
 
+
+    <ImageButton
+        android:id="@+id/bookBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="22dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_book"
+        tools:ignore="SpeakableTextPresentCheck" />
 </LinearLayout>

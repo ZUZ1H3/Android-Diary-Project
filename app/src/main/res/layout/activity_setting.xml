@@ -19,7 +19,7 @@
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
-            android:src="@drawable/left2" />
+            android:src="@drawable/ic_left2" />
 
         <TextView
             android:id="@+id/textViewSelectBackground"
@@ -139,7 +139,7 @@
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:layout_marginTop="35dp"
-        android:src="@drawable/check"
+        android:src="@drawable/ic_check"
         android:layout_gravity="center"/>
 
 </LinearLayout>

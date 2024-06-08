@@ -12,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class ListActivity extends AppCompatActivity {
+public class DiaryListActivity extends AppCompatActivity {
 
     private ListView listView;
-    private ListAdapter adapter;
+    private DiaryListAdapter adapter;
     private ArrayList<Diary> diaryList; // Diary 객체의 ArrayList를 사용합니다.
     private DiaryDBHelper diaryDBHelper;
     private ImageButton button_back;
@@ -23,7 +23,7 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_diary_list);
 
         listView = findViewById(R.id.listView);
         diaryList = new ArrayList<>();
@@ -34,7 +34,7 @@ public class ListActivity extends AppCompatActivity {
         diaryList.addAll(diaryDBHelper.getAllDiaries()); // DBHelper에서 가져온 List를 ArrayList에 추가합니다.
 
         // 리스트뷰에 어댑터를 설정합니다.
-        adapter = new ListAdapter(this, diaryList);
+        adapter = new DiaryListAdapter(this, diaryList);
         listView.setAdapter(adapter);
 
         button_back.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +52,7 @@ public class ListActivity extends AppCompatActivity {
                 Diary clickedDiary = diaryList.get(position);
 
                 // 상세보기 액티비티로 이동합니다.
-                Intent intent = new Intent(ListActivity.this, DiaryDetailActivity.class);
+                Intent intent = new Intent(DiaryListActivity.this, DiaryDetailActivity.class);
                 intent.putExtra("content", clickedDiary.getContent());
                 intent.putExtra("date", clickedDiary.getDate());
 

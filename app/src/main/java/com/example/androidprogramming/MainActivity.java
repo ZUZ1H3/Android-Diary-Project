@@ -3,12 +3,15 @@ package com.example.androidprogramming;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -22,16 +25,19 @@ public class MainActivity extends AppCompatActivity {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy년 MM월");
     private RecyclerView recyclerView;
 
+    private ImageButton listBtn, bookBtn, graphBtn, settingBtn, preBtn, nextBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageButton listBtn = findViewById(R.id.listBtn);
-        ImageButton graphBtn = findViewById(R.id.graphBtn);
-        ImageButton settingBtn = findViewById(R.id.settingBtn);
-        ImageButton preBtn = findViewById(R.id.preBtn);
-        ImageButton nextBtn = findViewById(R.id.nextBtn);
+        listBtn = findViewById(R.id.listBtn);
+        bookBtn = findViewById(R.id.bookBtn);
+        graphBtn = findViewById(R.id.graphBtn);
+        settingBtn = findViewById(R.id.settingBtn);
+        preBtn = findViewById(R.id.preBtn);
+        nextBtn = findViewById(R.id.nextBtn);
 
         monthYearText = findViewById(R.id.monthYearText);
         recyclerView = findViewById(R.id.recyclerview);
@@ -42,10 +48,18 @@ public class MainActivity extends AppCompatActivity {
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DiaryListActivity.class);
                 startActivity(intent);
             }
         });
+        bookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BookReviewListActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         graphBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton listBtn = findViewById(R.id.listBtn);
         ImageButton graphBtn = findViewById(R.id.graphBtn);
+        ImageButton bookBtn = findViewById(R.id.bookBtn);
         ImageButton settingBtn = findViewById(R.id.settingBtn);
         ImageButton preBtn = findViewById(R.id.preBtn);
         ImageButton nextBtn = findViewById(R.id.nextBtn);
@@ -100,7 +115,14 @@ public class MainActivity extends AppCompatActivity {
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), DiaryListActivity.class);
+                startActivity(intent);
+            }
+        });
+        bookBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BookReviewListActivity.class);
                 startActivity(intent);
             }
         });

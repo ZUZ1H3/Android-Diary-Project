@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends BaseAdapter {
+public class DiaryListAdapter extends BaseAdapter {
 
     private Context context;
     private ArrayList<Diary> diaryList;
 
-    public ListAdapter(Context context, ArrayList<Diary> diaryList) {
+    public DiaryListAdapter(Context context, ArrayList<Diary> diaryList) {
         this.context = context;
         this.diaryList = diaryList;
     }
@@ -38,7 +38,7 @@ public class ListAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.diary_list_item, parent, false);
         }
 
         TextView dateText = convertView.findViewById(R.id.dateText);
