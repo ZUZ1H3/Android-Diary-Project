@@ -9,20 +9,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_marginBottom="80dp"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/listBtn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="22dp"
             android:background="@android:color/transparent"
             android:padding="0sp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_list"
             tools:ignore="SpeakableTextPresentCheck" />
 
+        <ImageButton
+            android:id="@+id/bookBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="22dp"
+            android:background="@android:color/transparent"
+            android:padding="0sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_book"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/graphBtn"
@@ -35,7 +44,10 @@
             android:src="@drawable/ic_chart"
             tools:ignore="SpeakableTextPresentCheck" />
 
-
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/settingBtn"
@@ -55,6 +67,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -180,16 +193,4 @@
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content" />
-
-
-    <ImageButton
-        android:id="@+id/bookBtn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="22dp"
-        android:background="@android:color/transparent"
-        android:padding="0sp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_book"
-        tools:ignore="SpeakableTextPresentCheck" />
 </LinearLayout>

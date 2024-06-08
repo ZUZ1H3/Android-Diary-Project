@@ -1,33 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editText_search"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:hint="검색어를 입력하세요."
-        android:inputType="text"
-        android:imeOptions="actionSearch"/>
-
-    <Button
-        android:id="@+id/button_search"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_search"
-        android:layout_alignParentEnd="true"
-        android:text="검색" />
+        android:layout_marginBottom="14dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:background="@android:color/transparent"
+            android:padding="0sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_left2" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:fontFamily="@font/diary"
+            android:gravity="center"
+            android:text="도서 찾기"
+            android:textSize="24dp" />
+
+        <View
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editText_search"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fontFamily="@font/diary"
+            android:hint="제목 또는 저자를 입력하세요."
+            android:imeOptions="actionSearch"
+            android:inputType="text" />
+
+        <ImageButton
+            android:id="@+id/button_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="14dp"
+            android:background="@android:color/transparent"
+            android:padding="0sp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_search" />
+    </LinearLayout>
 
     <ListView
         android:id="@+id/listView_books"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/button_search"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:visibility="gone"/>
+        android:layout_weight="1"
+        android:visibility="gone" />
 
-</RelativeLayout>
+</LinearLayout>

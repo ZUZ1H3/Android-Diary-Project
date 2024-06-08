@@ -1,13 +1,16 @@
 package com.example.androidprogramming;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -20,10 +23,11 @@ import java.util.List;
 public class BookSearchActivity extends AppCompatActivity {
 
     private EditText editTextSearch;
-    private Button buttonSearch;
+    private ImageButton searchButton, backButton;
     private ListView listViewBooks;
     private BookSearchListAdapter adapter;
     private BookViewModel bookViewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,8 @@ public class BookSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_book_search);
 
         editTextSearch = findViewById(R.id.editText_search);
-        buttonSearch = findViewById(R.id.button_search);
+        searchButton = findViewById(R.id.button_search);
+        backButton = findViewById(R.id.button_back);
         listViewBooks = findViewById(R.id.listView_books);
 
         List<BookResponse.Item> bookList = new ArrayList<>();
@@ -40,7 +45,13 @@ public class BookSearchActivity extends AppCompatActivity {
 
         bookViewModel = new ViewModelProvider(this).get(BookViewModel.class);
 
-        buttonSearch.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String query = editTextSearch.getText().toString();
@@ -63,5 +74,13 @@ public class BookSearchActivity extends AppCompatActivity {
                 listViewBooks.setVisibility(View.VISIBLE);
             }
         });
+
+        // SharedPreferences에서 배경 이미지 읽어오기
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+        // 배경 이미지 설정하기
+        View rootView = findViewById(android.R.id.content);
+        rootView.setBackgroundResource(background);
     }
 }

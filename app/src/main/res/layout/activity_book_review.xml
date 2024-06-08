@@ -5,38 +5,61 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="14dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_left2" />
     <ImageView
         android:id="@+id/book_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_marginBottom="20sp"
+        android:src="@drawable/question" />
 
     <TextView
         android:id="@+id/book_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16sp"
+        android:fontFamily="@font/diary"
+        android:text="명품 운영체제"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/book_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/diary"
+        android:text="황기태"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/editText_review"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:hint="리뷰를 작성하세요"
-        android:layout_marginTop="16dp" />
+        android:layout_height="320dp"
+        android:layout_marginTop="20sp"
+        android:fontFamily="@font/diary"
+        android:gravity="top"
+        android:hint="감상평을 작성하세요." />
 
-    <Button
+    <ImageButton
         android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="저장"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="end"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/transparent"
+        android:padding="0sp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_save" />
+
 </LinearLayout>

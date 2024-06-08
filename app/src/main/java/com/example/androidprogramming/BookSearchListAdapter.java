@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class BookSearchListAdapter extends ArrayAdapter<BookResponse.Item> {
         ImageView bookImage = convertView.findViewById(R.id.book_image);
         TextView bookTitle = convertView.findViewById(R.id.book_title);
         TextView bookAuthor = convertView.findViewById(R.id.book_author);
-        Button addBtn = convertView.findViewById(R.id.button_add);
+        ImageButton addBtn = convertView.findViewById(R.id.button_add);
 
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -3,48 +3,63 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
-
-    <ImageView
-        android:id="@+id/book_image"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_vertical"
-        android:scaleType="fitXY" />
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp">
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/book_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:text="푸바오책"/>
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/question"
+            android:layout_marginLeft="10dp"/>
 
-        <TextView
-            android:id="@+id/book_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            android:text="저자"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
 
-        <TextView
-            android:id="@+id/book_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="존나재밋다"/>
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="4dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/diary"
+                android:maxLines="1"
+                android:text="책 제목"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/book_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/diary"
+                android:text="저자"
+                android:textColor="#757575"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/book_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/diary"
+                android:text="재밋다~~~~~"
+                android:textSize="14sp" />
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

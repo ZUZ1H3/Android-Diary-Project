@@ -2,13 +2,16 @@ package com.example.androidprogramming;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,7 +30,7 @@ public class BookReviewActivity extends AppCompatActivity {
     private TextView bookTitle;
     private TextView bookAuthor;
     private EditText reviewEditText;
-    private Button saveButton;
+    private ImageButton backButton, saveButton;
     private BookReviewDBHelper dbHelper;
 
     @Override
@@ -39,6 +42,7 @@ public class BookReviewActivity extends AppCompatActivity {
         bookTitle = findViewById(R.id.book_title);
         bookAuthor = findViewById(R.id.book_author);
         reviewEditText = findViewById(R.id.editText_review);
+        backButton = findViewById(R.id.button_back);
         saveButton = findViewById(R.id.button_save);
         dbHelper = new BookReviewDBHelper(this);
 
@@ -51,19 +55,37 @@ public class BookReviewActivity extends AppCompatActivity {
         bookAuthor.setText(author);
         Picasso.get().load(imageUrl).into(bookImage);
 
-        saveButton.setOnClickListener(v -> {
-            String review = reviewEditText.getText().toString();
-            if (!review.isEmpty()) {
-                Bitmap imageBitmap = ((BitmapDrawable) bookImage.getDrawable()).getBitmap();
-                saveReview(title, author, review, imageBitmap);
-                Toast.makeText(BookReviewActivity.this, "리뷰가 저장되었습니다.", Toast.LENGTH_SHORT).show();
-                Intent reviewListIntent = new Intent(BookReviewActivity.this, BookReviewListActivity.class);
-                startActivity(reviewListIntent);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-            } else {
-                Toast.makeText(BookReviewActivity.this, "리뷰를 작성하세요.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String review = reviewEditText.getText().toString();
+                if (!review.isEmpty()) {
+                    Bitmap imageBitmap = ((BitmapDrawable) bookImage.getDrawable()).getBitmap();
+                    saveReview(title, author, review, imageBitmap);
+                    Toast.makeText(BookReviewActivity.this, "리뷰가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                    Intent reviewListIntent = new Intent(BookReviewActivity.this, BookReviewListActivity.class);
+                    startActivity(reviewListIntent);
+                    finish();
+                } else {
+                    Toast.makeText(BookReviewActivity.this, "리뷰를 작성하세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // SharedPreferences에서 배경 이미지 읽어오기
+        SharedPreferences sharedPreferences = getSharedPreferences("AppSettings", MODE_PRIVATE);
+        int background = sharedPreferences.getInt("background", R.drawable.background1);
+
+        // 배경 이미지 설정하기
+        View rootView = findViewById(android.R.id.content);
+        rootView.setBackgroundResource(background);
     }
 
     private byte[] getByteArrayFromBitmap(Bitmap bitmap) {
