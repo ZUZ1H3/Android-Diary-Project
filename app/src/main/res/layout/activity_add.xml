@@ -13,32 +13,32 @@
         android:layout_height="30dp"
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
-        android:src="@drawable/ic_left2"
         android:background="@android:color/transparent"
         android:padding="0sp"
         android:scaleType="centerCrop"
-        tools:ignore="SpeakableTextPresentCheck"/>
+        android:src="@drawable/ic_left2"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="05월 20일"
-        android:gravity="center"
-        android:textSize="20sp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/diary"
-        android:layout_marginTop="10dp"/>
+        android:gravity="center"
+        android:text="05월 20일"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/weather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="오늘의 날씨를 알려주세요!"
-        android:gravity="center"
-        android:textSize="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/diary"/>
+        android:fontFamily="@font/diary"
+        android:gravity="center"
+        android:text="오늘의 날씨를 알려주세요!"
+        android:textSize="20dp" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -52,66 +52,59 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/rGroup_weather"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/rGroup_weather">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/sunny"
-                    android:drawableTop="@drawable/weather_sunny"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="sunny">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_sunny"
+                    android:tag="sunny"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/rainy"
-                    android:drawableTop="@drawable/weather_rainy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="rainy">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_rainy"
+                    android:tag="rainy"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/cloudy"
-                    android:drawableTop="@drawable/weather_cloudy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="cloudy">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_cloudy"
+                    android:tag="cloudy"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/windy"
-                    android:drawableTop="@drawable/weather_windy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="windy">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_windy"
+                    android:tag="windy"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/lightning"
-                    android:drawableTop="@drawable/weather_lightning"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="lightning">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_lightning"
+                    android:tag="lightning"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/snowy"
-                    android:drawableTop="@drawable/weather_snowy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="snowy">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_snowy"
+                    android:tag="snowy"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/rainbow"
-                    android:drawableTop="@drawable/weather_rainbow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="rainbow">
-                </RadioButton>
+                    android:drawableTop="@drawable/weather_rainbow"
+                    android:tag="rainbow"></RadioButton>
             </RadioGroup>
         </LinearLayout>
     </HorizontalScrollView>
@@ -120,12 +113,12 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="오늘의 기분은 어땠나요?"
-        android:gravity="center"
-        android:textSize="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
-        android:fontFamily="@font/diary"/>
+        android:fontFamily="@font/diary"
+        android:gravity="center"
+        android:text="오늘의 기분은 어땠나요?"
+        android:textSize="20dp" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -139,82 +132,73 @@
             android:orientation="horizontal">
 
             <RadioGroup
+                android:id="@+id/rGroup_mood"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/rGroup_mood">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/happy"
-                    android:drawableTop="@drawable/mood_happy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="happy">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_happy"
+                    android:tag="happy"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/sad"
-                    android:drawableTop="@drawable/mood_sad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="sad">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_sad"
+                    android:tag="sad"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/angry"
-                    android:drawableTop="@drawable/mood_angry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="angry">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_angry"
+                    android:tag="angry"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/lucky"
-                    android:drawableTop="@drawable/mood_lucky"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="lucky">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_lucky"
+                    android:tag="lucky"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/soso"
-                    android:drawableTop="@drawable/mood_soso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="soso">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_soso"
+                    android:tag="soso"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/flutter"
-                    android:drawableTop="@drawable/mood_flutter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="flutter">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_flutter"
+                    android:tag="flutter"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/tired"
-                    android:drawableTop="@drawable/mood_tired"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="tired">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_tired"
+                    android:tag="tired"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/comfortable"
-                    android:drawableTop="@drawable/mood_comfortable"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="comfortable">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_comfortable"
+                    android:tag="comfortable"></RadioButton>
 
                 <RadioButton
                     android:id="@+id/exciting"
-                    android:drawableTop="@drawable/mood_exciting"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:tag="exciting">
-                </RadioButton>
+                    android:drawableTop="@drawable/mood_exciting"
+                    android:tag="exciting"></RadioButton>
             </RadioGroup>
         </LinearLayout>
     </HorizontalScrollView>
@@ -229,5 +213,5 @@
         android:padding="0sp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_right2"
-        tools:ignore="SpeakableTextPresentCheck"/>
+        tools:ignore="SpeakableTextPresentCheck" />
 </LinearLayout>

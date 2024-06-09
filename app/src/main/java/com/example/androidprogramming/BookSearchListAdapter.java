@@ -1,17 +1,19 @@
 package com.example.androidprogramming;
+
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
-
+import java.io.InputStream;
 import java.util.List;
 
 public class BookSearchListAdapter extends ArrayAdapter<BookResponse.Item> {
@@ -46,8 +48,39 @@ public class BookSearchListAdapter extends ArrayAdapter<BookResponse.Item> {
 
         bookTitle.setText(book.getTitle());
         bookAuthor.setText(book.getAuthor());
-        Picasso.get().load(book.getImage()).into(bookImage);
+        new ImageDownloaderTask(bookImage).execute(book.getImage());
 
         return convertView;
+    }
+
+    private static class ImageDownloaderTask extends AsyncTask<String, Void, Bitmap> {
+        private ImageView imageView;
+
+        public ImageDownloaderTask(ImageView imageView) {
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            String url = urls[0];
+            Bitmap bitmap = null;
+            try {
+                InputStream input = new java.net.URL(url).openStream();
+                bitmap = BitmapFactory.decodeStream(input);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                imageView.setImageBitmap(result);
+            } else {
+                // 기본 이미지나 에러 이미지를 설정할 수 있습니다.
+                imageView.setImageResource(R.drawable.question);
+            }
+        }
     }
 }

@@ -61,7 +61,7 @@ public class DiaryActivity extends AppCompatActivity {
         day = bundle.getInt("day");
         weather = bundle.getString("weather");
         mood = bundle.getString("mood");
-        textViewDate.setText(String.format(Locale.getDefault(), "%d년 %02d월 %02d일", year, month, day));
+        textViewDate.setText(year + "년 " + month + "월 " + day + "일");
     }
 
     private void updateUI() {

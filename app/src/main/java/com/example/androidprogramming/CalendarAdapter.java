@@ -70,7 +70,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                     case "comfortable":
                         holder.dayImage.setImageResource(R.drawable.mood_comfortable);
                         break;
-                    case "exiting":
+                    case "exciting":
                         holder.dayImage.setImageResource(R.drawable.mood_exciting);
                         break;
                     default:

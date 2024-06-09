@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,9 +20,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.squareup.picasso.Picasso;
-
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 
 public class BookReviewActivity extends AppCompatActivity {
 
@@ -53,7 +54,7 @@ public class BookReviewActivity extends AppCompatActivity {
 
         bookTitle.setText(title);
         bookAuthor.setText(author);
-        Picasso.get().load(imageUrl).into(bookImage);
+        new ImageDownloaderTask(bookImage).execute(imageUrl);
 
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,4 +110,35 @@ public class BookReviewActivity extends AppCompatActivity {
         db.close();
     }
 
+    private class ImageDownloaderTask extends AsyncTask<String, Void, Bitmap> {
+        private ImageView imageView;
+
+        public ImageDownloaderTask(ImageView imageView) {
+            this.imageView = imageView;
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... urls) {
+            String url = urls[0];
+            Bitmap bitmap = null;
+            try {
+                InputStream input = new java.net.URL(url).openStream();
+                bitmap = BitmapFactory.decodeStream(input);
+            } catch (Exception e) {
+                Log.e(TAG, "Error downloading image: " + e.getMessage());
+                e.printStackTrace();
+            }
+            return bitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            if (result != null) {
+                imageView.setImageBitmap(result);
+            } else {
+                // 기본 이미지나 에러 이미지를 설정할 수 있습니다.
+                imageView.setImageResource(R.drawable.question);
+            }
+        }
+    }
 }
