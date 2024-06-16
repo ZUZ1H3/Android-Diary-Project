@@ -1,4 +1,5 @@
 # 감정 일기 & 독서 기록 안드로이드 앱🦔
+width="200" height="400"
 
 ## 배경
 
@@ -15,13 +16,66 @@
 - **독서 검색 및 기록**: 네이버 API를 이용해 도서를 검색하고, 독후감을 기록할 수 있다.
 - 사용자가 5가지 배경화면 중 하나를 선택하여 변경할 수 있다.
 
+## 프로젝트 구조
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/1e632352-f25e-44b0-b149-6a4c91201d5a" alt="diary12" width="600">
 
-## 개발 도구
-- Java
-- Android Studio
-- 네이버 도서 검색 API
-- SQLite
-- MPAndroidChart 라이브러리
+## 결과물
+
+<br/>
+
+
+- **메인화면**
+
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/7600d814-10b5-427e-af17-7719c30e5107" alt="diary1" height="600">
+
+<br/>
+<br/>
+
+- **일기 작성화면**
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/13b6a35d-dd9a-48b4-b108-c2ad27a3ff8c" height="600" alt="diary2">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/365de5b9-5866-4310-b500-ee52cf623d53"  height="600" alt="diary3">
+
+<br/>
+<br/>
+
+- **일기 리스트 화면**
+
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/3d275f2a-2e54-464c-b05e-03b59dc0152e" height="600" alt="diary4">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/88578df7-f580-4061-a57c-7c8f3631d1b2" height="600" alt="diary5">
+
+<br/>
+<br/>
+
+- **감정 분석 그래프 화면**
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/98a3d793-2d1e-43ee-9828-f19e1f223c04" height="600" 
+alt="diary6">
+
+<br/>
+
+- **도서 검색, 리뷰 작성 화면**
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/4398e22d-c518-494f-8785-74ddfea93179" height="600"  alt="diary7">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/9216bc9a-f89a-43b7-808a-29b27e445cdb" height="600" 
+ alt="diary8">
+
+<br/>
+<br/>
+
+- **도서 리스트 화면**
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/cbfeefad-1b40-4c72-8142-3518f5e7f425"  height="600"  alt="diary9">
+
+<br/>
+<br/>
+
+- **배경화면 변경 화면**
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/16d648aa-ae17-44ec-b6b3-dbe751c1eeca" height="600"  alt="diary10">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/78dcfb8b-e791-4c34-88f0-9f9d359801e3" height="600"  alt="diary11">
 
 ## 기대 효과
 1. 일기를 간편하게 작성할 수 있다.
