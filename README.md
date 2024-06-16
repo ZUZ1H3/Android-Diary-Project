@@ -50,7 +50,37 @@
 - 일기 하나를 누르면 자세히 볼 수 있다.
 
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/3d275f2a-2e54-464c-b05e-03b59dc0152e" height="600" alt="diary4">
-<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/88578df7-f580-4061-a57c-7c8f3631d1b2" height="600" 고 배경화면이 변경된다.
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/88578df7-f580-4061-a57c-7c8f3631d1b2" height="600" alt="diary5">
+
+<br/>
+<br/>
+
+**감정 분석 그래프 화면**
+-  데이터베이스에 저장된 감정 중, 가장 많이 저장된 감정 Top 3를 보여준다.
+- MPAndroidChart를 이용한 원형 그래프로 전체 비율을 시각화한다.
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/98a3d793-2d1e-43ee-9828-f19e1f223c04" height="600" 
+alt="diary6">
+
+<br/>
+
+**도서 검색, 리뷰 작성 화면**
+- 네이버 검색 API를 활용하여 제목 또는 저자를 입력하면 도서를 검색할 수 있다.
+- \+ 버튼을 누르면 리뷰를 작성할 수 있는 화면으로 넘어간다.
+- 작성 후 저장 버튼을 누르면 데이터베이스에 저장된다.
+-  '내가 읽은 도서' 화면에서 저장된 도서 리스트를 확인할 수있다.
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/4398e22d-c518-494f-8785-74ddfea93179" height="600"  alt="diary7">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/9216bc9a-f89a-43b7-808a-29b27e445cdb" height="600" 
+ alt="diary8">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/cbfeefad-1b40-4c72-8142-3518f5e7f425"  height="600"  alt="diary9">
+
+<br/>
+<br/>
+
+**배경화면 변경 화면**
+- 메인 화면에서 설정 버튼을 누르면 배경화면을 선택할 수 있는 화면으로 넘어간다.
+- 선택 후 체크 버튼을 누르면 Toast 메시지가 뜨며 배경화면이 변경된다.
 
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/16d648aa-ae17-44ec-b6b3-dbe751c1eeca" height="600"  alt="diary10">
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/78dcfb8b-e791-4c34-88f0-9f9d359801e3" height="600"  alt="diary11">
