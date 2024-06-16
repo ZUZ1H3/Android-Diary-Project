@@ -1,5 +1,4 @@
 # 감정 일기 & 독서 기록 안드로이드 앱🦔
-width="200" height="400"
 
 ## 배경
 
@@ -61,12 +60,6 @@ alt="diary6">
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/4398e22d-c518-494f-8785-74ddfea93179" height="600"  alt="diary7">
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/9216bc9a-f89a-43b7-808a-29b27e445cdb" height="600" 
  alt="diary8">
-
-<br/>
-<br/>
-
-- **도서 리스트 화면**
-
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/cbfeefad-1b40-4c72-8142-3518f5e7f425"  height="600"  alt="diary9">
 
 <br/>
