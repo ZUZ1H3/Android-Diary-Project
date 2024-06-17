@@ -163,22 +163,18 @@ public class DiaryActivity extends AppCompatActivity {
 
     private void displaySelectedImage(Uri imageUri) {
         try {
-            // 이미지를 로드할 때 BitmapFactory.Options 객체를 생성합니다.
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true; // 이미지를 메모리에 로드하지 않고 이미지의 크기 정보만 읽습니다.
+            options.inJustDecodeBounds = true;
 
             InputStream inputStream = getContentResolver().openInputStream(imageUri);
             BitmapFactory.decodeStream(inputStream, null, options);
             inputStream.close();
 
-            // 이미지의 원본 해상도 정보를 얻습니다.
             int imageWidth = options.outWidth;
             int imageHeight = options.outHeight;
 
-            // 원하는 해상도로 이미지를 스케일링하기 위한 샘플링 계수를 계산합니다.
             int scaleFactor = calculateScaleFactor(imageWidth, imageHeight);
 
-            // BitmapFactory.Options 객체를 다시 설정하여 이미지를 실제로 로드합니다.
             options.inJustDecodeBounds = false;
             options.inSampleSize = scaleFactor;
 
@@ -186,7 +182,6 @@ public class DiaryActivity extends AppCompatActivity {
             selectedImageBitmap = BitmapFactory.decodeStream(inputStream, null, options);
             inputStream.close();
 
-            // 이미지를 이미지뷰에 설정합니다.
             imageViewPhoto.setImageBitmap(selectedImageBitmap);
             imageViewPhoto.setVisibility(View.VISIBLE);
         } catch (Exception e) {
@@ -195,8 +190,8 @@ public class DiaryActivity extends AppCompatActivity {
     }
 
     private int calculateScaleFactor(int imageWidth, int imageHeight) {
-        final int targetWidth = 1024; // 원하는 해상도의 너비
-        final int targetHeight = 768; // 원하는 해상도의 높이
+        final int targetWidth = 1024;
+        final int targetHeight = 768;
 
         int scaleFactor = 1;
         if (imageWidth > targetWidth || imageHeight > targetHeight) {
@@ -210,7 +205,6 @@ public class DiaryActivity extends AppCompatActivity {
         }
         return scaleFactor;
     }
-
 
     private void handleSaveButtonClick() {
         saveDiaryEntry();
@@ -240,7 +234,7 @@ public class DiaryActivity extends AppCompatActivity {
 
         if (image != null) {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            image.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            image.compress(Bitmap.CompressFormat.JPEG, 50, stream); // JPEG 포맷으로 50% 품질로 압축
             byte[] byteArray = stream.toByteArray();
             values.put("image", byteArray);
         }

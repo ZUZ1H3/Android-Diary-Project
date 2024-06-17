@@ -57,18 +57,23 @@ public class DiaryDetailActivity extends AppCompatActivity {
                 Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                 if (bitmap != null) {
                     diaryImageView.setImageBitmap(bitmap);
+                    diaryImageView.setVisibility(View.VISIBLE);
                 } else {
                     // 이미지를 디코딩할 수 없는 경우 기본 이미지 설정
-                    diaryImageView.setImageResource(R.drawable.mood_angry);
+                    diaryImageView.setImageResource(R.drawable.question);
+                    diaryImageView.setVisibility(View.GONE);
+
                 }
             } catch (Exception e) {
                 e.printStackTrace();
                 // 예외 처리
-                diaryImageView.setImageResource(R.drawable.mood_sad);
+                diaryImageView.setImageResource(R.drawable.question);
+                diaryImageView.setVisibility(View.GONE);
             }
         } else {
             // 이미지가 없는 경우 기본 이미지 설정
             diaryImageView.setImageResource(R.drawable.question);
+            diaryImageView.setVisibility(View.GONE);
         }
 
         // SharedPreferences에서 배경 이미지 읽어오기

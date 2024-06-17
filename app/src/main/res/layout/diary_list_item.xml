@@ -29,6 +29,16 @@
             android:layout_weight="1" />
 
         <ImageView
+            android:id="@+id/diaryImg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <ImageView
             android:id="@+id/weatherImg"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -49,17 +59,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical">
-        <ImageView
-            android:id="@+id/diaryImg"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="10dp"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
 
-            android:visibility="gone" />
         <TextView
             android:id="@+id/diaryText"
             android:layout_width="wrap_content"
