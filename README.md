@@ -10,7 +10,7 @@
 
 
 ## 프로젝트 기능
-- **감정 일기 작성**: 캘린더의 날짜를 클릭하면 그 날의 날씨와 9가지 감정 중 하나를 선택하여 사진과 함께 일기를 작성할 수 있다.
+- **감정 일기 작성**: 캘린더의 날짜를 클릭하면 그 날의 날씨와 9가지 감정 중 하나를 선택하여 일기를 작성할 수 있다.
 - **감정 분석 그래프**: 많이 저장된 감정을 Top 3로 순위를 매기고, MPAndroidChart 라이브러리를 사용해 Pie Chart로 시각화하여 보여준다.
 - **독서 검색 및 기록**: 네이버 API를 이용해 도서를 검색하고, 독후감을 기록할 수 있다.
 - 사용자가 5가지 배경화면 중 하나를 선택하여 변경할 수 있다.
@@ -50,12 +50,14 @@
 **일기 리스트 화면**
 - 저장된 일기들을 날짜 순으로 볼 수 있다.
 - 선택했던 날씨와 감정 이모티콘이 함께 보여진다.
-- 사진을 첨부하여 일기를 작성한 경우 작은 크기로 미리 볼 수 있다.
+- 사진을 첨부하여 일기를 작성한 경우 작은 크기로 보여진다.
 - 일기 하나를 누르면 전체화면으로 볼 수 있다.
 
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/53ee0080-ce80-45bb-a3f6-104b1dbb2e0c" alt="diary4" style="height: 600px;">
 
 <img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/2dd39807-27f0-4155-b220-22c4b0a8a7a1" alt="diary5" style="height: 600px;">
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/4377e5c1-bd7d-4d5c-a4c1-506d08d00237" alt="diary13" style="height: 600px;">
 
 
 <br/>
