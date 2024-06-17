@@ -78,7 +78,6 @@ public class BookSearchListAdapter extends ArrayAdapter<BookResponse.Item> {
             if (result != null) {
                 imageView.setImageBitmap(result);
             } else {
-                // 기본 이미지나 에러 이미지를 설정할 수 있습니다.
                 imageView.setImageResource(R.drawable.question);
             }
         }

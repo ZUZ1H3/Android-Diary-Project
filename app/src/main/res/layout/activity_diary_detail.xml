@@ -44,16 +44,27 @@
             android:layout_height="80dp"
             android:src="@drawable/mood_lucky"/>
     </LinearLayout>
-
+    <!-- 추가된 이미지뷰 -->
+    <ImageView
+        android:id="@+id/imageView_diary"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"/>
     <TextView
         android:id="@+id/textView_diary"
         android:layout_width="match_parent"
-        android:layout_height="430dp"
+        android:layout_height="330dp"
         android:fontFamily="@font/diary"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:textSize="20sp"/>
+
 
 
 </LinearLayout>

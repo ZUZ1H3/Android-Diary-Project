@@ -5,25 +5,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
-// DBHelper.java
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DiaryDBHelper extends SQLiteOpenHelper {
     // 데이터베이스 버전과 이름을 정의합니다.
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2; // 버전을 2로 변경
     private static final String DATABASE_NAME = "DiaryDB.db";
 
     public DiaryDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -33,7 +27,9 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
                 "date TEXT," +
                 "weather TEXT," +
                 "mood TEXT," +
-                "content TEXT" + ")";
+                "content TEXT," +
+                "image BLOB" + // 이미지 컬럼 추가
+                ")";
         db.execSQL(CREATE_DIARY_TABLE);
     }
 
@@ -54,13 +50,19 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()) {
             do {
-                Diary diary = new Diary(
-                        cursor.getInt(0),
-                        cursor.getString(1),
-                        cursor.getString(2),
-                        cursor.getString(3),
-                        cursor.getString(4)
-                );
+                int id = cursor.getInt(0);
+                String date = cursor.getString(1);
+                String weather = cursor.getString(2);
+                String mood = cursor.getString(3);
+                String content = cursor.getString(4);
+                byte[] imageBytes = cursor.getBlob(5);
+
+                Bitmap image = null;
+                if (imageBytes != null) {
+                    image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+                }
+
+                Diary diary = new Diary(id, date, weather, mood, content, imageBytes); // imageBytes로 수정
                 diaryList.add(diary);
             } while (cursor.moveToNext());
         }
@@ -68,6 +70,7 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
         db.close();
         return diaryList;
     }
+
 
     public int updateDiary(Diary diary) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -77,19 +80,21 @@ public class DiaryDBHelper extends SQLiteOpenHelper {
         values.put("weather", diary.getWeather());
         values.put("mood", diary.getMood());
         values.put("content", diary.getContent());
+        values.put("image", diary.getImage()); // 이미지를 바이트 배열로 가져와서 저장
 
         // id를 기준으로 일기를 업데이트합니다.
-        return db.update("diary", values, "id = ?",
-                new String[] { String.valueOf(diary.getId()) });
+        int rowsAffected = db.update("diary", values, "id = ?", new String[]{String.valueOf(diary.getId())});
+
+        db.close(); // 데이터베이스 연결 종료
+
+        return rowsAffected; // 영향을 받은 행 수 반환
     }
 
     public void deleteDiary(Diary diary) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("diary", "id = ?",
-                new String[] { String.valueOf(diary.getId()) });
+        db.delete("diary", "id = ?", new String[]{String.valueOf(diary.getId())});
         db.close();
     }
-
 
     public boolean hasDiaryOnDate(String date) {
         SQLiteDatabase db = this.getReadableDatabase();

@@ -1,6 +1,6 @@
 package com.example.androidprogramming;
 
-import java.util.Calendar;
+import android.graphics.Bitmap;
 
 public class Diary {
     private int id;
@@ -8,14 +8,16 @@ public class Diary {
     private String weather;
     private String mood;
     private String content;
+    private byte[] image;
 
     // 생성자
-    public Diary(int id, String date, String weather, String mood, String content) {
+    public Diary(int id, String date, String weather, String mood, String content, byte[] image) {
         this.id = id;
         this.date = date;
         this.weather = weather;
         this.mood = mood;
         this.content = content;
+        this.image = image;
     }
 
     // id에 대한 getter와 setter
@@ -38,21 +40,13 @@ public class Diary {
         int month = Integer.parseInt(dateParts[1]);
         int day = Integer.parseInt(dateParts[2]);
 
-        // Calendar 객체를 사용하여 날짜 형식 변경
-        //Calendar calendar = Calendar.getInstance();
-        //calendar.set(month - 1, day); // month는 0부터 시작하므로 -1 해줍니다.
-
         // 변경된 형식의 날짜를 문자열로 반환
-        return year + "년 "
-                + month + "월 "
-                + day + "일";
+        return year + "년 " + month + "월 " + day + "일";
     }
 
     public void setDate(String date) {
         this.date = date;
     }
-
-
 
     // weather에 대한 getter와 setter
     public String getWeather() {
@@ -79,5 +73,14 @@ public class Diary {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    // image에 대한 getter와 setter
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }

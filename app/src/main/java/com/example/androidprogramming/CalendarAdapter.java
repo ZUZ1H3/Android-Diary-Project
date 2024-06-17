@@ -37,13 +37,13 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         Calendar day = dayList.get(position);
 
         if (day == null) {
-            holder.dayText.setText(""); // 빈 칸
+            holder.dayText.setText("");
         } else {
             String mood = checkDiaryMood(day);
 
             if (mood != null) {
-                holder.dayText.setVisibility(View.GONE); // 텍스트를 숨깁니다
-                holder.dayImage.setVisibility(View.VISIBLE); // 이미지를 표시합니다
+                holder.dayText.setVisibility(View.GONE);
+                holder.dayImage.setVisibility(View.VISIBLE);
 
                 switch (mood) {
                     case "happy":
@@ -79,8 +79,8 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
                 }
             } else {
                 holder.dayText.setText(String.valueOf(day.get(Calendar.DAY_OF_MONTH)));
-                holder.dayText.setVisibility(View.VISIBLE); // 텍스트를 표시합니다
-                holder.dayImage.setVisibility(View.GONE); // 이미지를 숨깁니다
+                holder.dayText.setVisibility(View.VISIBLE);
+                holder.dayImage.setVisibility(View.GONE);
             }
         }
 
@@ -90,7 +90,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
         } else if (position == 0 || position % 7 == 0) {
             holder.dayText.setTextColor(Color.RED);
         }
-
 
         // 날짜 클릭 이벤트
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +111,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.Calend
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return dayList.size();

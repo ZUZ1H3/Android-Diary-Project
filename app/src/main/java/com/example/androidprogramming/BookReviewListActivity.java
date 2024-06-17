@@ -31,9 +31,8 @@ public class BookReviewListActivity extends AppCompatActivity {
         listViewReviews = findViewById(R.id.listView_reviews);
 
         dbHelper = new BookReviewDBHelper(this);
-        bookList = dbHelper.getAllReviews(); // 데이터베이스에서 서평 목록을 가져옵니다.
+        bookList = dbHelper.getAllReviews();
 
-        // 서평 목록을 어댑터에 설정합니다.
         adapter = new BookReviewListAdapter(this, bookList);
         listViewReviews.setAdapter(adapter);
 
@@ -62,8 +61,4 @@ public class BookReviewListActivity extends AppCompatActivity {
         rootView.setBackgroundResource(background);
 
     }
-
-
-    // 모든 서평을 데이터베이스에서 가져오는 메서드
-
 }

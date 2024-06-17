@@ -58,12 +58,10 @@ public class BookReviewListAdapter extends BaseAdapter {
         holder.bookAuthor.setText(book.getAuthor());
         holder.bookReview.setText(book.getReview());
 
-        // 이미지 데이터를 설정합니다. 예시에서는 byte 배열을 Bitmap으로 변환한 후 설정합니다.
         byte[] imageByteArray = book.getImage();
         if (imageByteArray != null) {
             holder.bookImage.setImageBitmap(BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.length));
         } else {
-            // 이미지가 없을 경우 기본 이미지를 설정할 수 있습니다.
             holder.bookImage.setImageResource(R.drawable.question);
         }
 

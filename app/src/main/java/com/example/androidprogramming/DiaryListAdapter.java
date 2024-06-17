@@ -1,6 +1,8 @@
 package com.example.androidprogramming;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +47,7 @@ public class DiaryListAdapter extends BaseAdapter {
         TextView diaryText = convertView.findViewById(R.id.diaryText);
         ImageView weatherImg = convertView.findViewById(R.id.weatherImg);
         ImageView moodImg = convertView.findViewById(R.id.moodImg);
+        ImageView diaryImg = convertView.findViewById(R.id.diaryImg); // 새로 추가된 이미지뷰
 
         Diary diary = diaryList.get(position);
 
@@ -75,7 +78,9 @@ public class DiaryListAdapter extends BaseAdapter {
             case "rainbow":
                 weatherImg.setImageResource(R.drawable.weather_rainbow);
                 break;
-            // 이하 날씨 이미지 추가
+            default:
+                weatherImg.setImageResource(R.drawable.question);
+                break;
         }
 
         // 기분 이미지 설정
@@ -107,9 +112,26 @@ public class DiaryListAdapter extends BaseAdapter {
             case "exciting":
                 moodImg.setImageResource(R.drawable.mood_exciting);
                 break;
-            // 이하 기분 이미지 추가
+            default:
+                moodImg.setImageResource(R.drawable.question);
+                break;
+        }
+
+        // DiaryListAdapter의 getView 메서드에서 일기 이미지 설정 부분
+        byte[] imageBytes = diary.getImage();
+        if (imageBytes != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+            if (bitmap != null) {
+                diaryImg.setImageBitmap(bitmap);
+                diaryImg.setVisibility(View.VISIBLE);
+            } else {
+                diaryImg.setVisibility(View.GONE);
+            }
+        } else {
+            diaryImg.setVisibility(View.GONE);
         }
 
         return convertView;
     }
+
 }

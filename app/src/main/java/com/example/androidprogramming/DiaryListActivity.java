@@ -55,6 +55,7 @@ public class DiaryListActivity extends AppCompatActivity {
                 Intent intent = new Intent(DiaryListActivity.this, DiaryDetailActivity.class);
                 intent.putExtra("content", clickedDiary.getContent());
                 intent.putExtra("date", clickedDiary.getDate());
+                intent.putExtra("image", clickedDiary.getImage()); // byte[] 형태의 이미지를 직접 전달
 
                 // Pass the resource IDs for weather and mood images
                 intent.putExtra("weather", getWeatherResource(clickedDiary.getWeather()));

@@ -19,7 +19,7 @@ public class BookReviewDBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_TITLE = "book_title";
     public static final String COLUMN_AUTHOR = "book_author";
     public static final String COLUMN_REVIEW = "review";
-    public static final String COLUMN_IMAGE = "image"; // BLOB 형태로 이미지를 저장하는 컬럼
+    public static final String COLUMN_IMAGE = "image";
 
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_BOOK + " (" +
@@ -27,7 +27,7 @@ public class BookReviewDBHelper extends SQLiteOpenHelper {
                     COLUMN_TITLE + " TEXT, " +
                     COLUMN_AUTHOR + " TEXT, " +
                     COLUMN_REVIEW + " TEXT, " +
-                    COLUMN_IMAGE + " BLOB" + // 이미지를 BLOB으로 저장하는 컬럼
+                    COLUMN_IMAGE + " BLOB" +
                     ");";
 
     public BookReviewDBHelper(Context context) {
@@ -62,8 +62,6 @@ public class BookReviewDBHelper extends SQLiteOpenHelper {
         db.close();
         return bookList;
     }
-
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

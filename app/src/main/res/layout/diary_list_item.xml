@@ -8,20 +8,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="8dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/diary"
             android:text="2024년 05월 20일"
-            android:textSize="16sp"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="15dp"/>
+            android:textSize="16sp" />
 
         <View
             android:layout_width="0dp"
@@ -32,35 +32,48 @@
             android:id="@+id/weatherImg"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/weather_cloudy"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/weather_cloudy" />
 
         <ImageView
             android:id="@+id/moodImg"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/mood_happy"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="15dp"/>
+            android:layout_marginRight="15dp"
+            android:src="@drawable/mood_happy" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/white"
-        >
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/diaryImg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
 
+            android:visibility="gone" />
         <TextView
             android:id="@+id/diaryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/diary"
-            android:text="오늘은 과자를 먹었다. 맛있었다. 그리고 프로젝트를 했다. 열심히 했다. 운영체제 공부도 했다. 저녁밥도 먹었다. 오늘의 일기 끝!"
-            android:textSize="14sp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"/>
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/diary"
+            android:maxLines="3"
+            android:text="오늘은 과자를 먹었다. 맛있었다. 그리고 안드로이드 프로젝트를 했다. 정말 열심히 했다. 너무 오래걸린다. 운영체제 공부도 했다. 재밌는데 피곤하다. 잠 많이 자고 싶다. 저녁밥도 먹었다. 오늘의 일기 끝!"
+            android:textSize="14sp" />
+
+
     </LinearLayout>
 </LinearLayout>
