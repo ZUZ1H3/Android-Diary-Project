@@ -37,20 +37,28 @@
 **일기 작성화면**
 - 그날의 날씨와 감정을 선택할 수 있다.
 - -> 버튼을 누르면 일기를 작성하는 화면으로 넘어간다.
+- \+ 버튼을 누르면 자신의 핸드폰 갤러리에 있는 사진을 첨부할 수 있다.
 - 작성 후 저장 버튼을 누르면 데이터베이스에 저장되고 메인 화면으로 돌아간다.
 
-<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/13b6a35d-dd9a-48b4-b108-c2ad27a3ff8c" height="600" alt="diary2">
-<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/365de5b9-5866-4310-b500-ee52cf623d53"  height="600" alt="diary3">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/af7cb61d-f94f-4594-afbe-5de17253ec0a" alt="diary2" style="height: 600px;">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/2c1b9bff-9ff8-409e-8691-37b15d495148" alt="diary3" style="height: 600px;">
+
 
 <br/>
 <br/>
 
 **일기 리스트 화면**
 - 저장된 일기들을 날짜 순으로 볼 수 있다.
-- 일기 하나를 누르면 자세히 볼 수 있다.
+- 선택했던 날씨와 감정 이모티콘이 함께 보여진다.
+- 사진을 첨부하여 일기를 작성한 경우 작은 크기로 보여진다.
+- 일기 하나를 누르면 전체화면으로 볼 수 있다.
 
-<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/3d275f2a-2e54-464c-b05e-03b59dc0152e" height="600" alt="diary4">
-<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/88578df7-f580-4061-a57c-7c8f3631d1b2" height="600" alt="diary5">
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/53ee0080-ce80-45bb-a3f6-104b1dbb2e0c" alt="diary4" style="height: 600px;">
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/2dd39807-27f0-4155-b220-22c4b0a8a7a1" alt="diary5" style="height: 600px;">
+
+<img src="https://github.com/ZUZ1H3/Android-Diary-Project/assets/147241368/4377e5c1-bd7d-4d5c-a4c1-506d08d00237" alt="diary13" style="height: 600px;">
+
 
 <br/>
 <br/>
