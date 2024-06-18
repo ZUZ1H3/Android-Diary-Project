@@ -98,3 +98,4 @@ alt="diary6">
 2. 사용자 개인의 감정 데이터를 시각화하여 자기 이해도를 높일 수 있다.
 3. 독서 기록 기능을 통해 사용자는 자신이 읽었던 도서를 정리하고 되돌아볼 수 있다.
    
+<iframe width="853" height="480" src="https://www.youtube.com/embed/ml1PG6SZO_Y" title="안드로이드프로그래밍 발표 영상(2211062 주지혜)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
